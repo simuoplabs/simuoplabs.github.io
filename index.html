@@ -1,0 +1,2072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="SimUoPLabs — Mechanical Engineering Research Team. Simulation, additive manufacturing, aerospace, motorsport. University of the Peloponnese, Patras." />
+    <title>SimUoPLabs / Analysis Drives Innovation</title>
+    <meta name="author" content="SimUoPLabs" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#0b0c0e" />
+    <link rel="canonical" href="https://simuoplabs.github.io/" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SimUoPLabs" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="el_GR" />
+    <meta property="og:title" content="SimUoPLabs | Analysis Drives Innovation" />
+    <meta property="og:description" content="Student-led mechanical engineering research, simulation, prototyping and STEM education in Patras, Greece." />
+    <meta property="og:url" content="https://simuoplabs.github.io/" />
+    <meta property="og:image" content="https://simuoplabs.github.io/og-image.svg" />
+    <meta property="og:image:alt" content="SimUoPLabs mechanical engineering research team" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SimUoPLabs | Analysis Drives Innovation" />
+    <meta name="twitter:description" content="Student-led mechanical engineering research, simulation, prototyping and STEM education in Patras, Greece." />
+    <meta name="twitter:image" content="https://simuoplabs.github.io/og-image.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Atkinson+Hyperlegible:wght@400;700&display=swap" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ResearchOrganization",
+      "name": "SimUoPLabs",
+      "url": "https://simuoplabs.github.io/",
+      "logo": "https://simuoplabs.github.io/favicon.svg",
+      "description": "Student-led mechanical engineering research team at the University of the Peloponnese.",
+      "email": "simuoplabs@gmail.com",
+      "address": {"@type": "PostalAddress", "addressLocality": "Patras", "addressCountry": "GR"},
+      "parentOrganization": {"@type": "CollegeOrUniversity", "name": "University of the Peloponnese"},
+      "sameAs": ["https://www.youtube.com/@SimUoPLabs", "https://www.instagram.com/simuoplabs/", "https://www.linkedin.com/company/simuoplabs", "https://www.facebook.com/profile.php?id=61578088051788"]
+    }
+    </script>
+
+    <style>
+        :root {
+            --ink: #0b0c0e;
+            --ink-2: #111318;
+            --ink-3: #161a22;
+            --paper: #ece9e0;
+            --text: #ece9e0;
+            --mute: #88857b;
+            --rule: rgba(236, 233, 224, 0.10);
+            --rule-strong: rgba(236, 233, 224, 0.22);
+            --signal: #c8ff2e;
+            --signal-dim: rgba(200, 255, 46, 0.12);
+            --signal-glow: rgba(200, 255, 46, 0.35);
+            --blueprint: #7cc4ff;
+            --blueprint-dim: rgba(124, 196, 255, 0.18);
+            --ember: #ff6a1f;
+            --shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.55);
+            --grid: 28px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        ::selection { background: var(--signal); color: #0b0c0e; }
+
+        body {
+            font-family: "IBM Plex Sans", system-ui, sans-serif;
+            font-weight: 400;
+            font-size: 16.5px;
+            line-height: 1.6;
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background: var(--ink);
+            background-image:
+                linear-gradient(var(--rule) 1px, transparent 1px),
+                linear-gradient(90deg, var(--rule) 1px, transparent 1px),
+                radial-gradient(ellipse at 12% 6%, rgba(200, 255, 46, 0.08), transparent 45%),
+                radial-gradient(ellipse at 92% 70%, rgba(124, 196, 255, 0.06), transparent 50%);
+            background-size: var(--grid) var(--grid), var(--grid) var(--grid), 100% 100%, 100% 100%;
+            background-attachment: fixed;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed; inset: 0;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.92 0 0 0 0 0.91 0 0 0 0 0.87 0 0 0 0.04 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+            opacity: 0.45;
+            pointer-events: none;
+            mix-blend-mode: overlay;
+            z-index: 1;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+        img, svg { display: block; max-width: 100%; }
+
+        .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-weight: 400; letter-spacing: 0.02em; }
+        .mono-up { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; }
+        .serif-i { font-family: "IBM Plex Sans", system-ui, sans-serif; font-style: italic; font-weight: 400; }
+        .num { font-family: "IBM Plex Mono", ui-monospace, monospace; color: var(--signal); font-weight: 500; }
+        .ember { color: var(--ember); }
+        .blueprint { color: var(--blueprint); }
+        .mute { color: var(--mute); }
+
+        :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 2px; }
+
+        .skip-link {
+            position: fixed; left: -9999px; top: 12px; padding: 10px 16px;
+            background: var(--signal); color: #0b0c0e; font-weight: 700; z-index: 5000;
+            font-family: "IBM Plex Mono", ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.78rem;
+        }
+        .skip-link:focus { left: 12px; }
+
+        /* ───────── TELEMETRY STRIP ───────── */
+        .telemetry {
+            position: relative; z-index: 50;
+            display: grid; grid-template-columns: auto 1fr auto;
+            align-items: center; gap: 20px;
+            border-bottom: 1px solid var(--rule);
+            padding: 8px 28px;
+            background: rgba(11, 12, 14, 0.85);
+            backdrop-filter: blur(8px);
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+            font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--mute);
+        }
+        .telemetry-stream { display: flex; gap: 28px; overflow: hidden; white-space: nowrap; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+        .telemetry-stream span { display: inline-flex; align-items: center; gap: 8px; }
+        .telemetry-stream .sep { color: var(--rule-strong); }
+        .live-dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: var(--signal); box-shadow: 0 0 0 0 var(--signal-glow);
+            animation: pulse 2.4s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 var(--signal-glow); }
+            50% { box-shadow: 0 0 0 6px transparent; }
+        }
+        .clock { color: var(--text); font-weight: 500; }
+
+        /* ───────── NAV ───────── */
+        nav.primary {
+            position: sticky; top: 0; z-index: 40;
+            display: grid; grid-template-columns: auto 1fr auto;
+            align-items: center; gap: 24px;
+            padding: 16px 28px;
+            background: rgba(11, 12, 14, 0.78);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--rule);
+        }
+        .logo {
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+            font-weight: 700; font-size: 0.95rem;
+            letter-spacing: 0.04em;
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .logo-glyph {
+            width: 22px; height: 22px;
+            border: 1.5px solid var(--signal);
+            position: relative;
+            transform: rotate(45deg);
+        }
+        .logo-glyph::before { content: ""; position: absolute; inset: 3px; border: 1px solid var(--signal); }
+        .logo-glyph::after { content: ""; position: absolute; inset: 7px; background: var(--signal); }
+        .logo span { color: var(--signal); }
+        .logo small { font-weight: 400; color: var(--mute); margin-left: 4px; font-size: 0.7rem; letter-spacing: 0.14em; }
+
+        .nav-menu {
+            display: flex; flex-wrap: wrap; gap: 4px 0; list-style: none; justify-content: center;
+            font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.78rem;
+            letter-spacing: 0.06em;
+        }
+        .nav-menu a {
+            display: inline-block; padding: 8px 12px; color: var(--mute);
+            transition: color 0.2s ease, background 0.2s ease;
+            border-radius: 2px;
+        }
+        .nav-menu a:hover, .nav-menu a:focus-visible { color: var(--text); background: var(--ink-3); }
+        .nav-menu a::before { content: "·  "; color: var(--rule-strong); }
+        .nav-menu li:first-child a::before { content: ""; }
+
+        .nav-tools { display: flex; gap: 8px; align-items: center; }
+        .pill {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 8px 14px; min-height: 38px;
+            border: 1px solid var(--rule-strong);
+            background: transparent; color: var(--text);
+            font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.74rem;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+        }
+        .pill:hover, .pill:focus-visible { border-color: var(--signal); color: var(--signal); outline: none; }
+        .lang-select {
+            -webkit-appearance: none; appearance: none;
+            background-image: linear-gradient(45deg, transparent 50%, var(--mute) 50%), linear-gradient(135deg, var(--mute) 50%, transparent 50%);
+            background-position: calc(100% - 14px) 50%, calc(100% - 9px) 50%;
+            background-size: 5px 5px, 5px 5px;
+            background-repeat: no-repeat;
+            padding-right: 28px;
+        }
+        .lang-select option { color: #0b0c0e; }
+        .menu-toggle { display: none; }
+
+        /* ───────── A11Y PANEL ───────── */
+        .a11y-panel {
+            position: fixed; top: 110px; right: 28px; z-index: 200;
+            width: min(360px, 90vw);
+            background: var(--ink-2);
+            border: 1px solid var(--rule-strong);
+            box-shadow: var(--shadow);
+            padding: 22px;
+            display: none;
+        }
+        .a11y-panel.open { display: block; }
+        .a11y-panel::before {
+            content: "§ A11Y";
+            position: absolute; top: -10px; left: 18px;
+            background: var(--ink-2);
+            padding: 0 8px;
+            font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.7rem;
+            letter-spacing: 0.18em; color: var(--signal);
+        }
+        .a11y-panel h3 { font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 600; font-size: 1.1rem; letter-spacing: -0.01em; margin-bottom: 4px; }
+        .a11y-panel p { color: var(--mute); font-size: 0.92rem; margin-bottom: 14px; }
+        .a11y-options { display: grid; gap: 8px; }
+        .a11y-option {
+            display: flex; align-items: center; justify-content: space-between; gap: 12px;
+            border: 1px solid var(--rule);
+            padding: 10px 12px;
+            font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.78rem;
+            text-align: left; color: var(--text);
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+        .a11y-option[aria-pressed="true"] { border-color: var(--signal); background: var(--signal-dim); color: var(--signal); }
+        .a11y-option:hover { border-color: var(--rule-strong); }
+        .a11y-reset {
+            margin-top: 12px; justify-content: center;
+            background: var(--signal); color: #0b0c0e; border-color: var(--signal); font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.74rem;
+        }
+        .a11y-reset:hover { background: transparent; color: var(--signal); }
+
+        /* ───────── HERO ───────── */
+        .hero {
+            position: relative; z-index: 2;
+            padding: 90px 28px 70px;
+            border-bottom: 1px solid var(--rule);
+            overflow: hidden;
+        }
+        .hero-grid {
+            display: grid; grid-template-columns: 1fr;
+            max-width: 1320px; margin: 0 auto;
+            gap: 60px;
+            position: relative;
+        }
+        .hero-meta {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed var(--rule-strong);
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+            font-size: 0.72rem; letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--mute);
+        }
+        .hero-meta dt { color: var(--mute); margin-bottom: 6px; font-weight: 400; font-size: 0.65rem; }
+        .hero-meta dd { color: var(--text); font-size: 0.78rem; }
+        .hero-meta dd .signal { color: var(--signal); }
+
+        .hero-title {
+            font-family: "IBM Plex Sans", system-ui, sans-serif;
+            font-weight: 600;
+            font-size: clamp(3rem, 9vw, 7.4rem);
+            line-height: 0.96;
+            letter-spacing: -0.045em;
+            color: var(--text);
+        }
+        .hero-title .word { display: inline-block; opacity: 0; transform: translateY(20px); animation: rise 1.1s cubic-bezier(.2,.7,.2,1) forwards; }
+        .hero-title .word:nth-child(2) { animation-delay: 0.12s; }
+        .hero-title .word:nth-child(3) { animation-delay: 0.24s; }
+        .hero-title .em { font-style: normal; color: var(--signal); position: relative; font-weight: 600; }
+        .hero-title .em::after {
+            content: ""; position: absolute; left: 0; right: 4%; bottom: 0.04em;
+            height: 0.06em; background: var(--signal); transform-origin: left;
+            transform: scaleX(0); animation: underline 1.4s 0.7s cubic-bezier(.2,.8,.2,1) forwards;
+        }
+        @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+        @keyframes underline { to { transform: scaleX(1); } }
+
+        .hero-lead {
+            max-width: 580px; color: var(--mute); font-size: 1.05rem; line-height: 1.65;
+            font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 400;
+            opacity: 0; animation: rise 0.9s 0.5s cubic-bezier(.2,.7,.2,1) forwards;
+        }
+        .hero-lead em { color: var(--text); font-style: italic; }
+
+        .hero-row {
+            display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: end;
+        }
+
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 12px;
+            padding: 14px 22px; min-height: 48px;
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+            font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500;
+            border: 1px solid var(--signal);
+            background: var(--signal); color: #0b0c0e;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+        }
+        .btn:hover, .btn:focus-visible {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0 0 var(--text);
+            outline: none;
+        }
+        .btn .arrow { width: 14px; height: 10px; }
+        .btn.ghost { background: transparent; color: var(--text); border-color: var(--rule-strong); }
+        .btn.ghost:hover { color: var(--signal); border-color: var(--signal); box-shadow: 4px 4px 0 0 var(--signal-dim); }
+
+        .hero-tags {
+            display: flex; flex-wrap: wrap; gap: 6px;
+            margin-top: 36px;
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+            font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+        }
+        .hero-tags span {
+            padding: 6px 10px;
+            border: 1px solid var(--rule-strong);
+            color: var(--mute);
+        }
+
+        .hero-schematic {
+            position: relative;
+            border: 1px solid var(--rule-strong);
+            background:
+                linear-gradient(var(--rule) 1px, transparent 1px),
+                linear-gradient(90deg, var(--rule) 1px, transparent 1px),
+                rgba(124, 196, 255, 0.03);
+            background-size: 14px 14px;
+            padding: 24px;
+            min-height: 380px;
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+            display: flex; flex-direction: column; gap: 12px;
+            overflow: hidden;
+        }
+        .hero-schematic-label {
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mute);
+        }
+        .hero-schematic-label .signal { color: var(--signal); display: inline-flex; align-items: center; gap: 6px; }
+        .hero-schematic-label .signal::before {
+            content: ""; width: 6px; height: 6px; background: var(--signal);
+            box-shadow: 0 0 6px var(--signal-glow); animation: pulse 2s ease-in-out infinite;
+        }
+        #heroCanvas {
+            flex: 1; width: 100%; min-height: 280px; display: block;
+        }
+        .hero-schematic-data {
+            margin-top: 4px; padding-top: 12px;
+            border-top: 1px dashed var(--rule-strong);
+            font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mute);
+            display: flex; flex-wrap: wrap; gap: 18px;
+        }
+        .hero-schematic-data span.k { color: var(--text); }
+        .hero-schematic-data span.s { color: var(--signal); }
+
+        /* ───────── MARQUEE ───────── */
+        .marquee {
+            position: relative; z-index: 2;
+            border-top: 1px solid var(--rule);
+            border-bottom: 1px solid var(--rule);
+            background: rgba(11, 12, 14, 0.9);
+            overflow: hidden;
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+        }
+        .marquee-track {
+            display: flex; gap: 56px;
+            white-space: nowrap;
+            padding: 18px 0;
+            animation: marquee 42s linear infinite;
+        }
+        .marquee-track span {
+            font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+            font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--text);
+            display: inline-flex; align-items: center; gap: 56px;
+        }
+        .marquee-track span::after {
+            content: "//"; color: var(--signal); font-weight: 600;
+            font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.95rem;
+        }
+        @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
+        /* ───────── SECTIONS ───────── */
+        section.sect {
+            position: relative; z-index: 2;
+            padding: 110px 28px 100px;
+            border-bottom: 1px solid var(--rule);
+        }
+        .sect-inner { max-width: 1320px; margin: 0 auto; }
+        .sect-head {
+            display: grid; grid-template-columns: auto 1fr; gap: 40px;
+            margin-bottom: 64px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--rule);
+            align-items: end;
+        }
+        .sect-num {
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+            font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--signal);
+        }
+        .sect-num span { color: var(--mute); display: block; margin-top: 6px; font-size: 0.68rem; }
+        .sect-title {
+            font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 600;
+            font-size: clamp(1.9rem, 4.4vw, 3.2rem); line-height: 1.05; letter-spacing: -0.035em;
+            color: var(--text);
+        }
+        .sect-title em { font-style: normal; color: var(--signal); font-weight: 600; }
+        .sect-sub {
+            margin-top: 16px; max-width: 660px;
+            color: var(--mute); font-size: 1rem; line-height: 1.6;
+            font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 400;
+        }
+
+        /* ───────── ABOUT ───────── */
+        .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; }
+        .about-prose p { color: var(--text); font-size: 1.18rem; line-height: 1.55; margin-bottom: 18px; max-width: 56ch; }
+        .about-prose p strong { font-weight: 500; color: var(--signal); }
+        .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 32px; }
+        .stat-block {
+            border: 1px solid var(--rule);
+            padding: 18px;
+            position: relative;
+        }
+        .stat-block::before {
+            content: ""; position: absolute; top: 12px; right: 12px;
+            width: 6px; height: 6px; background: var(--signal);
+        }
+        .stat-block .label { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mute); margin-bottom: 8px; display: block; }
+        .stat-block p { color: var(--text); font-size: 0.95rem; line-height: 1.45; }
+
+        .focus-card {
+            border: 1px solid var(--rule);
+            background: rgba(17, 19, 24, 0.6);
+            padding: 28px;
+            position: relative;
+        }
+        .focus-card::before {
+            content: "§ FOCUS"; position: absolute; top: -10px; left: 18px;
+            background: var(--ink); padding: 0 8px;
+            font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.68rem;
+            letter-spacing: 0.18em; color: var(--signal);
+        }
+        .focus-card h3 {
+            font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 600; font-size: 1.25rem;
+            letter-spacing: -0.015em;
+            margin-bottom: 24px;
+        }
+        .focus-list { display: grid; gap: 18px; }
+        .focus-item { display: grid; grid-template-columns: 32px 1fr; gap: 16px; padding-bottom: 18px; border-bottom: 1px dashed var(--rule); }
+        .focus-item:last-child { border-bottom: 0; padding-bottom: 0; }
+        .focus-item .ico { color: var(--signal); font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.85rem; padding-top: 4px; }
+        .focus-item h4 { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px; color: var(--text); }
+        .focus-item p { color: var(--mute); font-size: 0.95rem; line-height: 1.45; }
+
+        /* ───────── CAPABILITIES ───────── */
+        .cap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+        .cap-cell {
+            background: var(--ink);
+            padding: 36px 24px;
+            display: flex; flex-direction: column; gap: 16px;
+            transition: background 0.2s ease;
+            position: relative;
+        }
+        .cap-cell:hover { background: var(--ink-2); }
+        .cap-cell .idx {
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+            font-size: 0.7rem; letter-spacing: 0.18em; color: var(--signal);
+        }
+        .cap-cell h3 {
+            font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 600;
+            font-size: 1.35rem; line-height: 1.15; letter-spacing: -0.02em;
+        }
+        .cap-cell h3 em { font-style: normal; color: var(--blueprint); font-weight: 600; }
+        .cap-cell p { color: var(--mute); font-size: 0.94rem; }
+        .cap-cell .glyph {
+            margin-top: auto; padding-top: 20px;
+            display: flex; gap: 8px; align-items: center;
+            font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.7rem; color: var(--mute);
+            letter-spacing: 0.14em; text-transform: uppercase;
+        }
+        .cap-cell .glyph::before { content: "→"; color: var(--signal); }
+
+        /* ───────── RESEARCH SPEC SHEETS ───────── */
+        .research-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .spec {
+            border: 1px solid var(--rule-strong);
+            background: var(--ink-2);
+            padding: 28px;
+            position: relative;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .spec:hover { transform: translateY(-4px); border-color: var(--signal); }
+        .spec::after {
+            content: ""; position: absolute; top: 12px; right: 12px; bottom: 12px; width: 1px;
+            background: linear-gradient(to bottom, var(--rule-strong) 0, var(--rule-strong) 30%, transparent 30%, transparent 50%, var(--rule-strong) 50%, var(--rule-strong) 100%);
+            opacity: 0.5;
+        }
+        .spec-head {
+            display: flex; justify-content: space-between; align-items: center;
+            font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.72rem;
+            letter-spacing: 0.16em; text-transform: uppercase; color: var(--mute);
+            margin-bottom: 22px;
+            padding-bottom: 12px; border-bottom: 1px dashed var(--rule);
+        }
+        .spec-head .codename { color: var(--signal); }
+        .spec-head .status { display: inline-flex; align-items: center; gap: 6px; }
+        .spec-head .status::before {
+            content: ""; width: 6px; height: 6px; background: var(--signal);
+            box-shadow: 0 0 6px var(--signal-glow); animation: pulse 2s ease-in-out infinite;
+        }
+        .spec h3 { font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 600; font-size: 1.7rem; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 14px; }
+        .spec h3 em { font-style: normal; color: var(--blueprint); font-weight: 600; }
+        .spec p { color: var(--mute); font-size: 1rem; max-width: 50ch; }
+        .spec dl {
+            display: grid; grid-template-columns: 100px 1fr; gap: 6px 20px;
+            margin-top: 24px; padding-top: 18px; border-top: 1px dashed var(--rule);
+            font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.74rem;
+        }
+        .spec dt { color: var(--mute); letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.66rem; }
+        .spec dd { color: var(--text); }
+
+        /* ───────── HIGHLIGHT BAR ───────── */
+        .highlight-bar {
+            position: relative; z-index: 2;
+            padding: 64px 28px;
+            border-bottom: 1px solid var(--rule);
+            background:
+                linear-gradient(90deg, rgba(200, 255, 46, 0.08) 0%, transparent 70%),
+                var(--ink);
+            overflow: hidden;
+        }
+        .highlight-bar::before {
+            content: "";
+            position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+            background: var(--signal);
+        }
+        .highlight-inner {
+            max-width: 1320px; margin: 0 auto;
+            display: grid; grid-template-columns: auto 1fr auto; gap: 32px; align-items: center;
+        }
+        .highlight-bar .label {
+            font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.72rem;
+            letter-spacing: 0.18em; text-transform: uppercase; color: var(--signal);
+        }
+        .highlight-bar h2 {
+            font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 600;
+            font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.2; letter-spacing: -0.02em; max-width: 64ch;
+        }
+        .highlight-bar h2 em { font-style: normal; color: var(--signal); font-weight: 600; }
+        .highlight-bar p { color: var(--mute); margin-top: 8px; font-size: 0.95rem; }
+
+        /* ───────── COMPETITIONS ───────── */
+        .comp-table {
+            display: grid; grid-template-columns: 1fr;
+            border: 1px solid var(--rule);
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+        }
+        .comp-row {
+            display: grid; grid-template-columns: 80px 1fr 1.6fr auto;
+            gap: 24px; align-items: center;
+            padding: 24px;
+            border-top: 1px solid var(--rule);
+            transition: background 0.2s ease, padding 0.2s ease;
+        }
+        .comp-row:first-child { border-top: 0; }
+        .comp-row:hover { background: var(--ink-2); }
+        .comp-row .idx { color: var(--signal); font-size: 0.85rem; letter-spacing: 0.12em; }
+        .comp-row h3 { font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 600; font-size: 1.25rem; line-height: 1.2; letter-spacing: -0.02em; }
+        .comp-row p { color: var(--mute); font-size: 0.92rem; font-family: "IBM Plex Sans", system-ui, sans-serif; line-height: 1.55; }
+        .comp-row .domain { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text); padding: 6px 12px; border: 1px solid var(--rule-strong); justify-self: end; }
+
+        /* ───────── STEM ───────── */
+        .stem-quote {
+            font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 400;
+            font-size: clamp(1.15rem, 2vw, 1.5rem);
+            line-height: 1.5; letter-spacing: -0.005em;
+            max-width: 64ch; margin: 0 auto 56px; text-align: center;
+            color: var(--text); position: relative;
+            padding: 0 40px;
+        }
+        .stem-quote::before, .stem-quote::after {
+            content: ""; position: absolute; top: 50%; width: 40px; height: 1px; background: var(--signal);
+        }
+        .stem-quote::before { left: 0; transform: translateY(-50%); }
+        .stem-quote::after { right: 0; transform: translateY(-50%); }
+        .stem-quote strong { font-weight: 600; color: var(--signal); }
+
+        .stem-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-bottom: 24px; }
+        .stem-cell { background: var(--ink); padding: 24px 18px; min-height: 140px; display: flex; flex-direction: column; gap: 10px; position: relative; transition: background 0.2s ease; }
+        .stem-cell:hover { background: var(--ink-2); }
+        .stem-cell .num-tag { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.68rem; letter-spacing: 0.16em; color: var(--signal); }
+        .stem-cell h4 { font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 600; font-size: 1.05rem; line-height: 1.3; letter-spacing: -0.01em; }
+
+        .stem-secondary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .stem-block {
+            border: 1px solid var(--rule); padding: 28px;
+            background: rgba(17, 19, 24, 0.6);
+        }
+        .stem-block h4 { font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 600; font-size: 1.15rem; line-height: 1.25; letter-spacing: -0.015em; margin-bottom: 10px; }
+        .stem-block h4 em { font-style: normal; color: var(--signal); font-weight: 600; }
+        .stem-block p { color: var(--mute); font-size: 0.94rem; }
+        .stem-block .tag { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blueprint); margin-bottom: 10px; display: block; }
+
+        /* ───────── PARTNERSHIPS ───────── */
+        .partnership {
+            border: 1px solid var(--rule-strong);
+            padding: 56px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+            background: linear-gradient(135deg, rgba(17, 19, 24, 0.9), rgba(11, 12, 14, 0.6));
+        }
+        .partnership-meta {
+            font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.72rem;
+            letter-spacing: 0.16em; text-transform: uppercase; color: var(--mute);
+            margin-bottom: 24px;
+            display: flex; gap: 24px; align-items: center;
+        }
+        .partnership-meta .signal { color: var(--signal); }
+        .partnership h3 {
+            font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 600;
+            font-size: clamp(1.5rem, 2.8vw, 2rem); line-height: 1.15;
+            letter-spacing: -0.025em; margin-bottom: 16px;
+        }
+        .partnership h3 em { font-style: normal; color: var(--signal); font-weight: 600; }
+        .partnership p { color: var(--mute); margin-bottom: 16px; font-size: 1.02rem; }
+        .partnership p strong { color: var(--text); font-weight: 500; }
+        .partnership a { color: var(--signal); border-bottom: 1px solid var(--signal); padding-bottom: 1px; }
+        .partnership-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+        .partnership-tags span {
+            font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.68rem;
+            letter-spacing: 0.14em; text-transform: uppercase;
+            padding: 6px 10px; border: 1px solid var(--rule-strong); color: var(--mute);
+        }
+
+        /* ───────── SPONSORS ───────── */
+        .sponsor-strip {
+            display: grid; grid-template-columns: 0.8fr 1.4fr; gap: 48px; align-items: center;
+            border: 1px solid var(--rule-strong);
+            background: rgba(17, 19, 24, 0.55);
+            overflow: hidden;
+        }
+        .sponsor-copy { padding: 44px 0 44px 44px; }
+        .sponsor-copy h3 {
+            font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 600;
+            font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.15; letter-spacing: -0.02em;
+        }
+        .sponsor-copy p { color: var(--mute); margin: 14px 0 24px; max-width: 48ch; }
+        .sponsor-window {
+            position: relative;
+            overflow: hidden;
+            border-left: 1px solid var(--rule);
+            mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+        }
+        .sponsor-track {
+            display: flex; gap: 14px;
+            width: max-content;
+            padding: 34px 0;
+            animation: sponsorRoll 34s linear infinite;
+        }
+        .sponsor-logo {
+            width: 190px; height: 112px;
+            border: 1px solid var(--rule-strong);
+            background:
+                linear-gradient(135deg, rgba(200, 255, 46, 0.08), transparent 55%),
+                var(--ink);
+            display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px;
+            flex: 0 0 auto;
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+            text-align: center;
+        }
+        .sponsor-logo strong {
+            color: var(--text);
+            font-size: 0.82rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .sponsor-logo span {
+            color: var(--signal);
+            font-size: 0.62rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+        @keyframes sponsorRoll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        @media (prefers-reduced-motion: reduce) { .sponsor-track { animation: none; } }
+
+        /* ───────── PERSONNEL ───────── */
+        .roster {
+            display: grid; grid-template-columns: 1fr;
+            border-top: 1px solid var(--rule);
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+        }
+        .roster-row {
+            display: grid; grid-template-columns: 60px 1.4fr 1.4fr 1fr;
+            gap: 24px; align-items: center; padding: 22px 12px;
+            border-bottom: 1px solid var(--rule);
+            transition: background 0.2s ease, padding-left 0.3s ease;
+            color: inherit;
+        }
+        .roster-row:hover, .roster-row:focus-visible { background: var(--ink-2); padding-left: 24px; }
+        .roster-row:focus-visible { outline: 2px solid var(--signal); outline-offset: -2px; }
+        .roster-row .num { font-size: 0.85rem; letter-spacing: 0.1em; }
+        .roster-row .name {
+            font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 500;
+            font-size: 1.15rem; color: var(--text); letter-spacing: -0.01em;
+        }
+        .roster-row .role { font-size: 0.86rem; color: var(--mute); }
+        .roster-row .tag {
+            font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--signal); justify-self: end;
+            padding: 6px 10px; border: 1px solid var(--signal-dim);
+        }
+
+        /* ───────── FACULTY ───────── */
+        .faculty-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .faculty {
+            border: 1px solid var(--rule-strong);
+            padding: 36px; background: var(--ink-2);
+            position: relative;
+        }
+        .faculty::before {
+            content: "§ ADVISOR"; position: absolute; top: -10px; left: 24px;
+            background: var(--ink); padding: 0 8px;
+            font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.68rem;
+            letter-spacing: 0.18em; color: var(--signal);
+        }
+        .faculty h3 { font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 600; font-size: 1.4rem; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 4px; }
+        .faculty .role { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--signal); margin-bottom: 18px; display: inline-block; }
+        .faculty p { color: var(--mute); font-size: 0.95rem; margin-bottom: 12px; }
+        .faculty p.bio { color: var(--text); }
+        .faculty .link {
+            display: inline-flex; align-items: center; gap: 8px; margin-top: 16px;
+            font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.74rem;
+            letter-spacing: 0.14em; text-transform: uppercase;
+            color: var(--signal); padding-bottom: 2px; border-bottom: 1px solid var(--signal);
+        }
+
+        /* ───────── UNIVERSITIES ───────── */
+        .uni-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+        .uni-cell {
+            background: var(--ink); padding: 32px 24px;
+            display: flex; flex-direction: column; justify-content: space-between; gap: 24px;
+            min-height: 200px;
+            transition: background 0.2s ease;
+        }
+        .uni-cell:hover { background: var(--ink-2); }
+        .uni-cell .idx { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.7rem; letter-spacing: 0.18em; color: var(--signal); }
+        .uni-cell h4 { font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 600; font-size: 1.15rem; line-height: 1.25; letter-spacing: -0.015em; }
+        .uni-cell .country { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mute); }
+
+        /* ───────── CONTACT ───────── */
+        .contact-section { background: var(--ink-2); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+        .contact-info h3 {
+            font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 600;
+            font-size: clamp(1.6rem, 3.4vw, 2.4rem); line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.03em;
+        }
+        .contact-info h3 em { font-style: normal; color: var(--signal); font-weight: 600; }
+        .contact-info p { color: var(--mute); font-size: 1.02rem; margin-bottom: 32px; }
+        .contact-detail-list { display: grid; gap: 14px; padding-top: 24px; border-top: 1px dashed var(--rule-strong); }
+        .contact-detail {
+            display: grid; grid-template-columns: 100px 1fr; gap: 20px;
+            align-items: baseline;
+            font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.86rem;
+        }
+        .contact-detail dt { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mute); }
+        .contact-detail dd { color: var(--text); }
+        .contact-detail dd a:hover { color: var(--signal); }
+
+        .contact-form { display: grid; gap: 14px; }
+        .contact-form label { display: block; }
+        .contact-form .lbl { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mute); margin-bottom: 6px; display: block; }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            background: transparent;
+            border: 0; border-bottom: 1px solid var(--rule-strong);
+            padding: 12px 0; color: var(--text);
+            font: inherit; font-family: "IBM Plex Sans", system-ui, sans-serif; font-size: 1rem;
+            transition: border-color 0.2s ease;
+            outline: none;
+        }
+        .contact-form input:focus, .contact-form textarea:focus { border-color: var(--signal); }
+        .contact-form textarea { resize: vertical; min-height: 100px; }
+        .form-consent { display: flex !important; gap: 10px; align-items: flex-start; color: var(--mute); font-size: 0.88rem; line-height: 1.45; }
+        .form-consent input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--signal); flex: 0 0 auto; }
+        .form-consent a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+        .form-consent a:hover, .form-consent a:focus-visible { color: var(--signal); }
+        .contact-form .submit-row { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin-top: 14px; }
+        #form-status {
+            font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.78rem;
+            color: var(--mute); min-height: 22px;
+        }
+        #form-status.error { color: var(--ember); }
+        #form-status.ok { color: var(--signal); }
+
+        /* ───────── FOOTER ───────── */
+        footer.foot {
+            position: relative; z-index: 2;
+            background: var(--ink);
+            padding: 56px 28px 32px;
+            border-top: 1px solid var(--rule);
+        }
+        .foot-inner { max-width: 1320px; margin: 0 auto; display: grid; gap: 40px; }
+        .foot-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; padding-bottom: 40px; border-bottom: 1px solid var(--rule); }
+        .foot-brand p { color: var(--mute); font-size: 0.95rem; max-width: 36ch; margin-top: 16px; }
+        .foot-col .footer-title { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--signal); margin-bottom: 14px; }
+        .foot-col ul { list-style: none; display: grid; gap: 8px; }
+        .foot-col a { color: var(--mute); font-size: 0.92rem; transition: color 0.2s ease; }
+        .foot-col a:hover { color: var(--text); }
+
+        .foot-bottom {
+            display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: center;
+            font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.72rem;
+            letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);
+        }
+        .socials { display: flex; gap: 8px; }
+        .socials a {
+            width: 38px; height: 38px;
+            display: inline-flex; align-items: center; justify-content: center;
+            border: 1px solid var(--rule-strong); color: var(--mute);
+            transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+            font-size: 0.85rem;
+        }
+        .socials a:hover { color: var(--signal); border-color: var(--signal); background: var(--signal-dim); }
+
+        /* ───────── REVEAL ON SCROLL ───────── */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(.2,.7,.2,1), transform 0.8s cubic-bezier(.2,.7,.2,1); }
+        .reveal.in { opacity: 1; transform: translateY(0); }
+        .reveal.delay-1 { transition-delay: 0.1s; }
+        .reveal.delay-2 { transition-delay: 0.2s; }
+
+        /* ───────── A11Y MODES ───────── */
+        html.a11y-high-contrast { --ink: #000; --ink-2: #000; --ink-3: #0a0a0a; --text: #fff; --mute: #d8d8d8; --rule: rgba(255,255,255,0.5); --rule-strong: rgba(255,255,255,0.85); --signal: #ffea00; --signal-dim: rgba(255,234,0,0.25); --signal-glow: rgba(255,234,0,0.6); --blueprint: #74d2ff; }
+        html.a11y-large-text { font-size: 19px; }
+        html.a11y-large-text body { font-size: 19px; }
+        html.a11y-readable-font body, html.a11y-readable-font .mono, html.a11y-readable-font .mono-up { font-family: "Atkinson Hyperlegible", "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.02em; }
+        html.a11y-readable-font .serif-i, html.a11y-readable-font .hero-title, html.a11y-readable-font .sect-title, html.a11y-readable-font .stem-quote, html.a11y-readable-font .marquee-track span, html.a11y-readable-font .roster-row .name, html.a11y-readable-font .spec h3, html.a11y-readable-font .focus-card h3, html.a11y-readable-font .cap-cell h3, html.a11y-readable-font .stem-cell h4, html.a11y-readable-font .stem-block h4, html.a11y-readable-font .partnership h3, html.a11y-readable-font .sponsor-copy h3, html.a11y-readable-font .faculty h3, html.a11y-readable-font .uni-cell h4, html.a11y-readable-font .contact-info h3, html.a11y-readable-font .comp-row h3, html.a11y-readable-font .highlight-bar h2 { font-family: "Atkinson Hyperlegible", sans-serif; font-style: normal; }
+        html.a11y-underline-links a { text-decoration: underline; text-underline-offset: 0.22em; }
+        html.a11y-reduced-motion *, html.a11y-reduced-motion *::before, html.a11y-reduced-motion *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+        }
+
+        /* ───────── RESPONSIVE ───────── */
+        @media (max-width: 1100px) {
+            .hero-row { grid-template-columns: 1fr; }
+            .hero-meta { grid-template-columns: repeat(2, 1fr); }
+            .about-grid { grid-template-columns: 1fr; }
+            .cap-grid, .uni-grid { grid-template-columns: repeat(2, 1fr); }
+            .stem-grid { grid-template-columns: repeat(2, 1fr); }
+            .stem-secondary { grid-template-columns: 1fr; }
+            .research-grid, .faculty-grid, .contact-grid { grid-template-columns: 1fr; }
+            .partnership { grid-template-columns: 1fr; padding: 36px; }
+            .sponsor-strip { grid-template-columns: 1fr; }
+            .sponsor-copy { padding: 36px 36px 0; }
+            .sponsor-window { border-left: 0; border-top: 1px solid var(--rule); }
+            .foot-top { grid-template-columns: 1fr 1fr; }
+            .comp-row { grid-template-columns: 60px 1fr 1fr; }
+            .comp-row .domain { grid-column: 2 / span 2; justify-self: start; margin-top: 6px; }
+            .roster-row { grid-template-columns: 40px 1.4fr 1fr; gap: 16px; }
+            .roster-row .tag { display: none; }
+        }
+        @media (max-width: 760px) {
+            body { font-size: 16px; }
+            .telemetry { padding: 8px 18px; grid-template-columns: 1fr auto; gap: 12px; }
+            .telemetry-stream { display: none; }
+            nav.primary { padding: 14px 18px; grid-template-columns: auto auto; }
+            .nav-menu { display: none; flex-direction: column; gap: 0; width: 100%; grid-column: 1 / -1; padding-top: 14px; border-top: 1px solid var(--rule); margin-top: 14px; }
+            .nav-menu.open { display: flex; }
+            .nav-menu a { padding: 12px 0; }
+            .nav-menu a::before { content: ""; }
+            nav.primary { display: flex; flex-wrap: wrap; }
+            .nav-tools { margin-left: auto; }
+            .menu-toggle { display: inline-flex; }
+            .a11y-panel { right: 18px; top: 100px; }
+            .hero { padding: 60px 18px 50px; }
+            .hero-meta { grid-template-columns: 1fr 1fr; gap: 16px; }
+            .hero-title { font-size: clamp(3rem, 14vw, 5rem); }
+            .marquee-track span { font-size: 1.8rem; gap: 32px; }
+            .marquee-track { gap: 32px; }
+            section.sect { padding: 80px 18px 70px; }
+            .sect-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 40px; }
+            .cap-grid, .stem-grid, .uni-grid { grid-template-columns: 1fr; }
+            .highlight-inner { grid-template-columns: 1fr; gap: 16px; }
+            .highlight-bar { padding: 40px 18px; }
+            .roster-row { grid-template-columns: 30px 1fr; padding: 18px 6px; }
+            .roster-row .role { grid-column: 2; font-size: 0.78rem; }
+            .roster-row .name { font-size: 1.25rem; }
+            .partnership { padding: 28px; }
+            .sponsor-copy { padding: 28px 28px 0; }
+            .sponsor-logo { width: 160px; height: 98px; }
+            .foot-top { grid-template-columns: 1fr; gap: 28px; }
+            .foot-inner { gap: 24px; }
+            footer.foot { padding: 40px 18px 24px; }
+            .contact-grid { gap: 40px; }
+            .stem-quote { padding: 0 28px; }
+            .stem-quote::before, .stem-quote::after { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main" data-key="skip">Skip to main content</a>
+
+    <!-- TELEMETRY STRIP -->
+    <div class="telemetry" role="complementary" aria-label="System telemetry">
+        <span class="mono-up"><span class="live-dot" aria-hidden="true"></span> <span data-key="tel.status">SYSTEMS / OPERATIONAL</span></span>
+        <div class="telemetry-stream" aria-hidden="true">
+            <span><span class="sep">N</span> 38.232°</span>
+            <span><span class="sep">E</span> 21.747°</span>
+            <span><span class="sep">·</span> KOUKOULI / PATRAS / GR</span>
+            <span><span class="sep">·</span> DEPT. MECHANICAL ENGINEERING</span>
+            <span><span class="sep">·</span> WIND TUNNEL / NODE-1</span>
+            <span><span class="sep">·</span> ADDITIVE / SLS</span>
+        </div>
+        <span class="mono-up clock">
+            <span class="mute">WIND</span> <span id="wind-speed" style="color:var(--signal)">00.0</span> <span class="mute">m/s</span>
+            <span class="mute" style="margin: 0 12px; color: var(--rule-strong)">|</span>
+            <span id="clock-time">--:--:--</span> <span class="mute">EEST</span>
+        </span>
+    </div>
+
+    <!-- NAV -->
+    <nav class="primary" aria-label="Main navigation">
+        <a href="#home" class="logo" aria-label="SimUoPLabs home">
+            <span class="logo-glyph" aria-hidden="true"></span>
+            SimUoP<span>Labs</span><small>v.04</small>
+        </a>
+        <ul class="nav-menu" id="navMenu" role="list">
+            <li><a href="#about" data-key="nav.about">About</a></li>
+            <li><a href="#capabilities" data-key="nav.capabilities">Capabilities</a></li>
+            <li><a href="#research" data-key="nav.research">Research</a></li>
+            <li><a href="#competitions" data-key="nav.competitions">Competitions</a></li>
+            <li><a href="#stem" data-key="nav.stem">STEM</a></li>
+            <li><a href="#sponsors" data-key="nav.sponsors">Sponsors</a></li>
+            <li><a href="#team" data-key="nav.team">Team</a></li>
+            <li><a href="#contact" data-key="nav.contact">Contact</a></li>
+        </ul>
+        <div class="nav-tools">
+            <select id="langSelect" class="pill lang-select" aria-label="Choose language">
+                <option value="en">EN</option>
+                <option value="el">EL</option>
+            </select>
+            <button id="a11yToggle" class="pill" type="button" aria-expanded="false" aria-controls="a11yPanel" data-key="a11y.button">A11Y</button>
+            <button class="pill menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="navMenu"><span data-key="menu.button">Menu</span></button>
+        </div>
+    </nav>
+
+    <!-- A11Y PANEL -->
+    <aside id="a11yPanel" class="a11y-panel" aria-label="Accessibility settings">
+        <h3 data-key="a11y.title">Accessibility</h3>
+        <p data-key="a11y.desc">Adjust the interface for easier reading and navigation.</p>
+        <div class="a11y-options">
+            <button class="a11y-option" type="button" data-feature="high-contrast" aria-pressed="false"><span data-key="a11y.contrast">High contrast</span><span data-key="a11y.toggle">Toggle</span></button>
+            <button class="a11y-option" type="button" data-feature="large-text" aria-pressed="false"><span data-key="a11y.text">Larger text</span><span data-key="a11y.toggle">Toggle</span></button>
+            <button class="a11y-option" type="button" data-feature="readable-font" aria-pressed="false"><span data-key="a11y.font">Readable font</span><span data-key="a11y.toggle">Toggle</span></button>
+            <button class="a11y-option" type="button" data-feature="underline-links" aria-pressed="false"><span data-key="a11y.links">Underline links</span><span data-key="a11y.toggle">Toggle</span></button>
+            <button class="a11y-option" type="button" data-feature="reduced-motion" aria-pressed="false"><span data-key="a11y.motion">Reduced motion</span><span data-key="a11y.toggle">Toggle</span></button>
+        </div>
+        <button id="a11yReset" class="a11y-option a11y-reset" type="button" data-key="a11y.reset">Reset settings</button>
+    </aside>
+
+    <!-- HERO -->
+    <header id="home" class="hero">
+        <div class="hero-grid">
+            <dl class="hero-meta">
+                <div><dt data-key="meta.dossier">DOSSIER</dt><dd>§ 00 / <span class="signal">MANIFEST</span></dd></div>
+                <div><dt data-key="meta.node">NODE</dt><dd data-key="meta.node.val">KOUKOULI · PATRAS</dd></div>
+                <div><dt data-key="meta.dept">DEPARTMENT</dt><dd data-key="meta.dept.val">MECH. ENG. / UoP</dd></div>
+                <div><dt data-key="meta.year">CYCLE</dt><dd>2024 — <span class="signal">2026</span></dd></div>
+            </dl>
+
+            <h1 class="hero-title">
+                <span class="word" data-key="hero.w1">Analysis</span>
+                <span class="word" data-key="hero.w2">drives</span>
+                <span class="word em" data-key="hero.w3">innovation.</span>
+            </h1>
+
+            <div class="hero-row">
+                <div>
+                    <p class="hero-lead" data-key="hero.lead" data-html="true">A student-led mechanical-engineering research team at the <em>University of the Peloponnese</em>. We simulate, prototype, manufacture, and fly — bridging academic rigour with hands-on engineering across aerospace, motorsport, additive manufacturing, and STEM education.</p>
+                    <div class="hero-actions">
+                        <a href="#research" class="btn">
+                            <span data-key="hero.explore">Explore Research</span>
+                            <svg class="arrow" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </a>
+                        <a href="#contact" class="btn ghost">
+                            <span data-key="hero.contact">Open Channel</span>
+                            <svg class="arrow" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </a>
+                    </div>
+                    <div class="hero-tags" aria-label="Active programs">
+                        <span>FORMULA STUDENT</span><span>CAN-SAT</span><span>CZECH ROCKET CHALLENGE</span><span>EuRoC</span><span>WIND TUNNEL</span><span>SLS · SLM · FDM</span>
+                    </div>
+                </div>
+
+                <figure class="hero-schematic" aria-hidden="true">
+                    <figcaption class="hero-schematic-label">
+                        <span>FIG. 01 — JOUKOWSKI · POTENTIAL FLOW</span>
+                        <span class="signal">FLOW LIVE</span>
+                    </figcaption>
+                    <canvas id="heroCanvas"></canvas>
+                    <div class="hero-schematic-data">
+                        <span><span class="k">Re</span> 2.4×10⁵</span>
+                        <span><span class="k">M</span> 0.08</span>
+                        <span><span class="k">α</span> 6°</span>
+                        <span class="s">↳ CFD VALIDATED</span>
+                    </div>
+                </figure>
+            </div>
+        </div>
+    </header>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span>PROJECT LASERUS</span><span>HYPERMILING UAS</span><span>WIND TUNNEL NODE-1</span><span>CFD AERO-PACK</span><span>STEM RACING</span><span>ROCKET CRC</span><span>ELECTRIC MOTOR LAB</span>
+            <span>PROJECT LASERUS</span><span>HYPERMILING UAS</span><span>WIND TUNNEL NODE-1</span><span>CFD AERO-PACK</span><span>STEM RACING</span><span>ROCKET CRC</span><span>ELECTRIC MOTOR LAB</span>
+        </div>
+    </div>
+
+    <main id="main" tabindex="-1">
+
+        <!-- ABOUT -->
+        <section id="about" class="sect">
+            <div class="sect-inner">
+                <header class="sect-head reveal">
+                    <div class="sect-num">§ 01<br/><span data-key="sec.about">Manifest</span></div>
+                    <h2 class="sect-title" data-key="about.title">Who we are, <em>and what we build.</em></h2>
+                </header>
+                <div class="about-grid">
+                    <div class="about-prose reveal">
+                        <p data-key="about.p1" data-html="true"><strong>SimUoPLabs</strong> is a student research team within the Department of Mechanical Engineering at the University of the Peloponnese. Under the guidance of <strong>Dr. Georgios Giannopoulos</strong> and <strong>Dr. Alexandros Kalarakis</strong>, we develop high-technology engineering solutions through analysis, experimentation, and manufacturing.</p>
+                        <p data-key="about.p2">Our work threads computational tools, hands-on prototyping, and student-led research into a single workflow — from CFD and FEM, through SLS printing, to wind-tunnel validation and rocket test fires.</p>
+                        <div class="about-stats">
+                            <div class="stat-block">
+                                <span class="label" data-key="stat.programs.label">PROGRAMS</span>
+                                <p data-key="about.stat1">Formula Student / FSAE · CAN-SAT · Czech Rocket Challenge · EuRoC.</p>
+                            </div>
+                            <div class="stat-block">
+                                <span class="label" data-key="stat.education.label">EDUCATION</span>
+                                <p data-key="about.stat2">STEM outreach and Certified Onshape Associate preparation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="focus-card reveal delay-1">
+                        <h3 data-key="focus.title">Core focus areas</h3>
+                        <div class="focus-list">
+                            <div class="focus-item"><span class="ico">[01]</span><div><h4 data-key="focus.fluid.title">Fluid Analysis</h4><p data-key="focus.fluid.text">CFD, flow optimization, aerodynamics, ducts, nozzles and wind-tunnel testing.</p></div></div>
+                            <div class="focus-item"><span class="ico">[02]</span><div><h4 data-key="focus.struct.title">Structural Analysis</h4><p data-key="focus.struct.text">FEM, strength of materials, static and dynamic analysis, component optimization.</p></div></div>
+                            <div class="focus-item"><span class="ico">[03]</span><div><h4 data-key="focus.motors.title">Electric Motors</h4><p data-key="focus.motors.text">R&amp;D in electric motors, control, efficiency and performance.</p></div></div>
+                            <div class="focus-item"><span class="ico">[04]</span><div><h4 data-key="focus.additive.title">Additive Manufacturing</h4><p data-key="focus.additive.text">FDM, SLS, SLM, material selection and process development.</p></div></div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAPABILITIES -->
+        <section id="capabilities" class="sect">
+            <div class="sect-inner">
+                <header class="sect-head reveal">
+                    <div class="sect-num">§ 02<br/><span data-key="sec.capabilities">Capabilities</span></div>
+                    <h2 class="sect-title" data-key="capabilities.title">Engineering <em>across the pipeline.</em></h2>
+                </header>
+                <div class="cap-grid reveal">
+                    <article class="cap-cell"><span class="idx">[02·01]</span><h3 data-key="cap.cfd.title">CFD &amp; <em>aerodynamics</em></h3><p data-key="cap.cfd.text">Flow simulation, aerodynamic surfaces, ducts, nozzles and performance optimization.</p><span class="glyph">SIM · WIND</span></article>
+                    <article class="cap-cell"><span class="idx">[02·02]</span><h3 data-key="cap.fem.title">FEM &amp; <em>materials</em></h3><p data-key="cap.fem.text">Structural analysis, advanced materials, strength validation and design improvement.</p><span class="glyph">FEA · MATL</span></article>
+                    <article class="cap-cell"><span class="idx">[02·03]</span><h3 data-key="cap.motors.title">Electric <em>motors</em></h3><p data-key="cap.motors.text">Motor performance, control concepts, efficiency and electromechanical systems.</p><span class="glyph">EMAG · CTRL</span></article>
+                    <article class="cap-cell"><span class="idx">[02·04]</span><h3 data-key="cap.print.title">Additive <em>manufacturing</em></h3><p data-key="cap.print.text">FDM, SLS, SLM, design for manufacturing, material and process selection.</p><span class="glyph">FDM · SLS · SLM</span></article>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESEARCH -->
+        <section id="research" class="sect">
+            <div class="sect-inner">
+                <header class="sect-head reveal">
+                    <div class="sect-num">§ 03<br/><span data-key="sec.research">Active Research</span></div>
+                    <h2 class="sect-title" data-key="research.title">Live programs, <em>under load.</em></h2>
+                </header>
+                <p class="sect-sub reveal" data-key="research.subtitle" style="margin: -32px 0 48px;">A multidisciplinary set of programs combining modern simulation, fabrication, testing and design tools.</p>
+                <div class="research-grid">
+                    <article class="spec reveal">
+                        <header class="spec-head"><span class="codename">CODENAME · LASERUS</span><span class="status" data-key="status.active">ACTIVE</span></header>
+                        <h3 data-key="research.laserus.title">Project <em>Laserus</em></h3>
+                        <p data-key="research.laserus.text">A low-cost, open-source SLS 3D printer aimed at industrial-grade results using blue diode-laser technology.</p>
+                        <dl>
+                            <dt data-key="spec.domain">DOMAIN</dt><dd data-key="research.laserus.domain">Additive Manufacturing</dd>
+                            <dt data-key="spec.phase">PHASE</dt><dd data-key="research.laserus.phase">Hardware Prototype</dd>
+                            <dt data-key="spec.tags">TAGS</dt><dd>SLS · DIODE LASER · OSS</dd>
+                        </dl>
+                    </article>
+                    <article class="spec reveal delay-1">
+                        <header class="spec-head"><span class="codename">CODENAME · HYPERMILE</span><span class="status" data-key="status.active">ACTIVE</span></header>
+                        <h3 data-key="research.uas.title">Hypermiling <em>UAS</em></h3>
+                        <p data-key="research.uas.text">High-endurance pusher-propeller drone for wildfire detection, autonomous visual mapping and efficient aerial surveillance.</p>
+                        <dl>
+                            <dt data-key="spec.domain">DOMAIN</dt><dd data-key="research.uas.domain">Aerospace · UAS</dd>
+                            <dt data-key="spec.phase">PHASE</dt><dd data-key="research.uas.phase">Flight Testing</dd>
+                            <dt data-key="spec.tags">TAGS</dt><dd>ENDURANCE · CV · AUTONOMY</dd>
+                        </dl>
+                    </article>
+                    <article class="spec reveal">
+                        <header class="spec-head"><span class="codename">CODENAME · AERO-PACK</span><span class="status" data-key="status.active">ACTIVE</span></header>
+                        <h3 data-key="research.aero.title">Aerodynamic <em>development</em></h3>
+                        <p data-key="research.aero.text">Design and analysis for competition vehicles, drones, rockets, ducts and nozzles.</p>
+                        <dl>
+                            <dt data-key="spec.domain">DOMAIN</dt><dd data-key="research.aero.domain">Aerodynamics</dd>
+                            <dt data-key="spec.phase">PHASE</dt><dd data-key="research.aero.phase">Continuous</dd>
+                            <dt data-key="spec.tags">TAGS</dt><dd>CFD · WIND TUNNEL · OPT.</dd>
+                        </dl>
+                    </article>
+                    <article class="spec reveal delay-1">
+                        <header class="spec-head"><span class="codename">CODENAME · GRID-CTRL</span><span class="status" data-key="status.active">ACTIVE</span></header>
+                        <h3 data-key="research.electrical.title">Electrical &amp; <em>control systems</em></h3>
+                        <p data-key="research.electrical.text">Support for motor systems, electronics, drone operation and experimental platforms.</p>
+                        <dl>
+                            <dt data-key="spec.domain">DOMAIN</dt><dd data-key="research.electrical.domain">Electronics · Control</dd>
+                            <dt data-key="spec.phase">PHASE</dt><dd data-key="research.electrical.phase">Continuous</dd>
+                            <dt data-key="spec.tags">TAGS</dt><dd>EMBED · TEST · BENCH</dd>
+                        </dl>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- WIND TUNNEL HIGHLIGHT -->
+        <aside class="highlight-bar reveal">
+            <div class="highlight-inner">
+                        <div class="label" data-key="wind.label">⌬ WIND-TUNNEL ACCESS</div>
+                <div>
+                    <h2 data-key="wind.title">Wind tunnel — <em>operational.</em></h2>
+                    <p data-key="wind.text">The team uses the University of the Peloponnese wind-tunnel facility for aerodynamic testing and validation work.</p>
+                </div>
+                <div class="mono-up mute" data-key="wind.code">FACILITY · UoP-WT-01</div>
+            </div>
+        </aside>
+
+        <!-- COMPETITIONS -->
+        <section id="competitions" class="sect">
+            <div class="sect-inner">
+                <header class="sect-head reveal">
+                    <div class="sect-num">§ 04<br/><span data-key="sec.competitions">Competitions</span></div>
+                    <h2 class="sect-title" data-key="competitions.title">Theory becomes <em>hardware.</em></h2>
+                </header>
+                <p class="sect-sub reveal" data-key="competitions.subtitle" style="margin: -32px 0 48px;">Competitions are how we turn coursework into deployable engineering systems.</p>
+                <div class="comp-table reveal">
+                    <article class="comp-row">
+                        <span class="idx">[04·01]</span>
+                        <h3>Formula Student / FSAE</h3>
+                        <p data-key="comp.formula.text">Vehicle engineering, aerodynamics, manufacturing and performance development.</p>
+                        <span class="domain mono-up" data-key="domain.motorsport">MOTORSPORT</span>
+                    </article>
+                    <article class="comp-row">
+                        <span class="idx">[04·02]</span>
+                        <h3>CAN-SAT</h3>
+                        <p data-key="comp.cansat.text">Mission design, systems thinking, electronics, testing and data collection.</p>
+                        <span class="domain mono-up" data-key="domain.aerospace">AEROSPACE</span>
+                    </article>
+                    <article class="comp-row">
+                        <span class="idx">[04·03]</span>
+                        <h3>Czech Rocket Challenge</h3>
+                        <p data-key="comp.crc.text">Rocket design, simulation, manufacturing, testing and launch preparation.</p>
+                        <span class="domain mono-up" data-key="domain.rocketry">ROCKETRY</span>
+                    </article>
+                    <article class="comp-row">
+                        <span class="idx">[04·04]</span>
+                        <h3>EuRoC</h3>
+                        <p data-key="comp.euroc.text">European rocketry goals, high-level analysis, safety and integrated development.</p>
+                        <span class="domain mono-up" data-key="domain.rocketry">ROCKETRY</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEM -->
+        <section id="stem" class="sect">
+            <div class="sect-inner">
+                <header class="sect-head reveal">
+                    <div class="sect-num">§ 05<br/><span data-key="sec.stem">STEM &amp; Outreach</span></div>
+                    <h2 class="sect-title" data-key="stem.title">Education builds <em>the next launch.</em></h2>
+                </header>
+                <p class="stem-quote reveal" data-key="stem.p1" data-html="true">Our collaboration with <strong>2ο Λύκειο Κορωπίου</strong> introduces high-school students to engineering thinking, CAD, design literacy, 3D design, 3D printing and competition-based STEM learning.</p>
+
+                <div class="stem-grid reveal">
+                    <article class="stem-cell"><span class="num-tag">[05·01]</span><h4 data-key="program.stem">Introduction to STEM</h4></article>
+                    <article class="stem-cell"><span class="num-tag">[05·02]</span><h4 data-key="program.engineering">Introduction to Engineering</h4></article>
+                    <article class="stem-cell"><span class="num-tag">[05·03]</span><h4 data-key="program.design2d">2D Design Literacy</h4></article>
+                    <article class="stem-cell"><span class="num-tag">[05·04]</span><h4 data-key="program.design3d">3D Design</h4></article>
+                    <article class="stem-cell"><span class="num-tag">[05·05]</span><h4 data-key="program.printing">3D Printing</h4></article>
+                </div>
+
+                <div class="stem-secondary reveal delay-1">
+                    <article class="stem-block"><span class="tag" data-key="tag.cert">CERT.</span><h4 data-key="stem.cert.title">Onshape <em>certification</em></h4><p data-key="stem.cert.text">CAD training and preparation for the Certified Onshape Associate exam.</p></article>
+                    <article class="stem-block"><span class="tag" data-key="tag.racing">RACING</span><h4 data-key="stem.racing.title">STEM <em>Racing</em></h4><p data-key="stem.racing.text">Introduction to motorsport engineering and F1 in Schools principles.</p></article>
+                    <article class="stem-block"><span class="tag" data-key="tag.aero">AEROSPACE</span><h4 data-key="stem.rocket.title">Rocket &amp; <em>CAN-SAT</em> prep</h4><p data-key="stem.rocket.text">Preparation for CAN-SAT and Czech Rocket Challenge activities.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTNERSHIPS -->
+        <section id="partnerships" class="sect">
+            <div class="sect-inner">
+                <header class="sect-head reveal">
+                    <div class="sect-num">§ 06<br/><span data-key="sec.partnerships">Partnerships</span></div>
+                    <h2 class="sect-title" data-key="partnership.title">Fueling the <em>next generation.</em></h2>
+                </header>
+                <article class="partnership reveal">
+                    <div>
+                        <div class="partnership-meta">
+                            <span data-key="partnership.tagline">⌬ DSA RACING × SimUoPLabs</span>
+                            <span class="signal" data-key="partnership.role">TECHNICAL SPONSOR</span>
+                        </div>
+                        <h3 data-key="partnership.heading">A high-school motorsport team — <em>built on simulation.</em></h3>
+                        <p data-key="partnership.p1" data-html="true">SimUoPLabs is a proud sponsor of <strong>DSA Racing</strong>, a high-school team from the German School of Athens competing in the global <strong>F1 in Schools / STEM Racing</strong> challenge.</p>
+                        <p data-key="partnership.p2">By supporting DSA Racing, we extend our expertise in aerodynamics and 3D manufacturing to student motorsport. Innovation has no age limit — our sponsorship provides the technical resources and mentorship required for success on the track.</p>
+                    </div>
+                    <div>
+                        <p data-key="partnership.contact" data-html="true">Interested in a technical partnership? <a href="#contact">Open a channel →</a> to discuss how we can support your STEM initiative.</p>
+                        <div class="partnership-tags">
+                            <span>MOTORSPORT</span><span>MENTORSHIP</span><span>F1 IN SCHOOLS</span><span>AERODYNAMICS</span><span>ADDITIVE</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- SPONSORS -->
+        <section id="sponsors" class="sect">
+            <div class="sect-inner">
+                <header class="sect-head reveal">
+                    <div class="sect-num">§ 06B<br/><span data-key="sec.sponsors">Sponsorship</span></div>
+                    <h2 class="sect-title" data-key="sponsors.title">Backed by <em>technical allies.</em></h2>
+                </header>
+                <div class="sponsor-strip reveal">
+                    <div class="sponsor-copy">
+                        <h3 data-key="sponsors.heading">Sponsor network</h3>
+                        <p data-key="sponsors.text">Our sponsors help turn simulation into hardware by supporting materials, manufacturing, electronics, testing and outreach.</p>
+                        <a href="sponsors.html" class="btn">
+                            <span data-key="sponsors.button">View all sponsors</span>
+                            <svg class="arrow" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </a>
+                    </div>
+                    <div class="sponsor-window" aria-label="Sponsorship opportunities">
+                        <div class="sponsor-track">
+                            <div class="sponsor-logo"><strong>Sponsor opportunity</strong><span>Platinum</span></div>
+                            <div class="sponsor-logo"><strong>Sponsor opportunity</strong><span>Gold</span></div>
+                            <div class="sponsor-logo"><strong>Sponsor opportunity</strong><span>Silver</span></div>
+                            <div class="sponsor-logo"><strong>Sponsor opportunity</strong><span>Bronze</span></div>
+                            <div class="sponsor-logo"><strong>Sponsor opportunity</strong><span>In-Kind</span></div>
+                            <div class="sponsor-logo"><strong>Sponsor opportunity</strong><span>Outreach</span></div>
+                            <div class="sponsor-logo"><strong>Sponsor opportunity</strong><span>Platinum</span></div>
+                            <div class="sponsor-logo"><strong>Sponsor opportunity</strong><span>Gold</span></div>
+                            <div class="sponsor-logo"><strong>Sponsor opportunity</strong><span>Silver</span></div>
+                            <div class="sponsor-logo"><strong>Sponsor opportunity</strong><span>Bronze</span></div>
+                            <div class="sponsor-logo"><strong>Sponsor opportunity</strong><span>In-Kind</span></div>
+                            <div class="sponsor-logo"><strong>Sponsor opportunity</strong><span>Outreach</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEAM -->
+        <section id="team" class="sect">
+            <div class="sect-inner">
+                <header class="sect-head reveal">
+                    <div class="sect-num">§ 07<br/><span data-key="sec.team">Personnel</span></div>
+                    <h2 class="sect-title" data-key="team.title">Roster, <em>by discipline.</em></h2>
+                </header>
+                <div class="roster reveal">
+                    <a class="roster-row" href="member.html?member=filippos" aria-label="Open profile for Filippos Stamos">
+                        <span class="num">01</span>
+                        <span class="name">Filippos Stamos</span>
+                        <span class="role" data-key="team.filippos">Team Lead and Aerodynamics</span>
+                        <span class="tag" data-key="role.projectLead">Project Lead</span>
+                    </a>
+                    <a class="roster-row" href="member.html?member=george" aria-label="Open profile for George Papadopoulos">
+                        <span class="num">02</span>
+                        <span class="name">George Papadopoulos</span>
+                        <span class="role" data-key="team.george">Aerodynamics Design and Analysis</span>
+                        <span class="tag" data-key="role.leadDesigner">Lead Designer</span>
+                    </a>
+                    <a class="roster-row" href="member.html?member=dimitris" aria-label="Open profile for Dimitris Konstantinopoulos">
+                        <span class="num">03</span>
+                        <span class="name">Dimitris Konstantinopoulos</span>
+                        <span class="role" data-key="team.dimitris">Manufacturing and Drone Operations</span>
+                        <span class="tag">UAS</span>
+                    </a>
+                    <a class="roster-row" href="member.html?member=stefanos" aria-label="Open profile for Stefanos Sikalos">
+                        <span class="num">04</span>
+                        <span class="name">Stefanos Sikalos</span>
+                        <span class="role" data-key="team.stefanos">Project Laserus Lead and 3D Printer Design</span>
+                        <span class="tag" data-key="role.additive">Additive</span>
+                    </a>
+                    <a class="roster-row" href="member.html?member=nikos" aria-label="Open profile for Nikos Roussos">
+                        <span class="num">05</span>
+                        <span class="name">Nikos Roussos</span>
+                        <span class="role" data-key="team.nikos">Electrical Lead</span>
+                        <span class="tag" data-key="role.electronics">Electronics</span>
+                    </a>
+                    <a class="roster-row" href="member.html?member=panagiotis" aria-label="Open profile for Panagiotis Chytiris">
+                        <span class="num">06</span>
+                        <span class="name">Panagiotis Chytiris</span>
+                        <span class="role" data-key="team.panagiotis">CFD Engineer</span>
+                        <span class="tag" data-key="role.simulation">Simulation</span>
+                    </a>
+                    <a class="roster-row" href="member.html?member=ilias" aria-label="Open profile for Ilias Varrelis">
+                        <span class="num">07</span>
+                        <span class="name">Ilias Varrelis</span>
+                        <span class="role" data-key="team.ilias">Materials Engineer</span>
+                        <span class="tag" data-key="role.materials">Materials</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FACULTY -->
+        <section id="faculty" class="sect">
+            <div class="sect-inner">
+                <header class="sect-head reveal">
+                    <div class="sect-num">§ 08<br/><span data-key="sec.faculty">Faculty</span></div>
+                    <h2 class="sect-title" data-key="faculty.title">Academic <em>advisors.</em></h2>
+                </header>
+                <p class="sect-sub reveal" data-key="faculty.subtitle" style="margin: -32px 0 48px;">The team is guided by faculty from the Department of Mechanical Engineering at the University of the Peloponnese.</p>
+                <div class="faculty-grid">
+                    <article class="faculty reveal">
+                        <h3 data-key="faculty.giannopoulos.name">Dr. Georgios Giannopoulos</h3>
+                        <span class="role" data-key="faculty.associate">Associate Professor</span>
+                        <p data-key="faculty.giannopoulos.specialty">Expertise: Structural Analysis, Computational Mechanics, Static and Dynamic Analysis, and Advanced Materials.</p>
+                        <p class="bio" data-key="faculty.giannopoulos.bio">Research and teaching interests include the optimization of mechanical components.</p>
+                        <a href="https://mech.uop.gr/staff-member/ggiannopoulos" target="_blank" rel="noopener noreferrer" class="link">
+                            <span data-key="faculty.profile">University Profile</span>
+                            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </a>
+                    </article>
+                    <article class="faculty reveal delay-1">
+                        <h3 data-key="faculty.kalarakis.name">Dr. Alexandros Kalarakis</h3>
+                        <span class="role" data-key="faculty.associate">Associate Professor</span>
+                        <p data-key="faculty.kalarakis.specialty">Expertise: Fluid Dynamics, Transport Phenomena Modeling, and Nano-structured Materials.</p>
+                        <p class="bio" data-key="faculty.kalarakis.bio">Director of the LAMS-UOP Laboratory, specializing in prototyping and characterization of nano-structured materials.</p>
+                        <a href="https://mech.uop.gr/staff-member/alexandros.kalarakis" target="_blank" rel="noopener noreferrer" class="link">
+                            <span data-key="faculty.profile">University Profile</span>
+                            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- UNIVERSITIES -->
+        <section id="universities" class="sect">
+            <div class="sect-inner">
+                <header class="sect-head reveal">
+                    <div class="sect-num">§ 09<br/><span data-key="sec.universities">Network</span></div>
+                    <h2 class="sect-title" data-key="universities.title">Participating students from <em>universities.</em></h2>
+                </header>
+                <p class="sect-sub reveal" data-key="universities.subtitle" style="margin: -32px 0 48px;">Students participate from multiple universities, strengthening collaboration, knowledge exchange and interdisciplinary development.</p>
+                <div class="uni-grid reveal">
+                    <article class="uni-cell"><span class="idx">[09·01]</span><h4 data-key="universities.uop">University of the Peloponnese</h4><span class="country" data-key="country.greece">Greece · GR</span></article>
+                    <article class="uni-cell"><span class="idx">[09·02]</span><h4 data-key="universities.patras">University of Patras</h4><span class="country" data-key="country.greece">Greece · GR</span></article>
+                    <article class="uni-cell"><span class="idx">[09·03]</span><h4 data-key="universities.hmu">Hellenic Mediterranean University</h4><span class="country" data-key="country.greece">Greece · GR</span></article>
+                    <article class="uni-cell"><span class="idx">[09·04]</span><h4 data-key="universities.kit">Karlsruhe Institute of Technology</h4><span class="country" data-key="country.germany">Germany · DE</span></article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="sect contact-section">
+            <div class="sect-inner">
+                <header class="sect-head reveal">
+                    <div class="sect-num">§ 10<br/><span data-key="sec.contact">Channel</span></div>
+                    <h2 class="sect-title" data-key="contact.heading">Open a <em>channel.</em></h2>
+                </header>
+                <div class="contact-grid">
+                    <div class="contact-info reveal">
+                        <h3 data-key="contact.title2">Research collaboration, sponsorship, or <em>student participation.</em></h3>
+                        <p data-key="contact.text">Get in touch with SimUoPLabs for research collaboration, STEM initiatives, technical partnerships, sponsorships or student participation.</p>
+                        <dl class="contact-detail-list">
+                            <div class="contact-detail"><dt data-key="contact.dt.location">LOCATION</dt><dd data-key="contact.location">Koukouli Campus, Patras, Greece</dd></div>
+                            <div class="contact-detail"><dt data-key="contact.dt.dept">DEPARTMENT</dt><dd data-key="contact.department">UoP — Mechanical Engineering</dd></div>
+                            <div class="contact-detail"><dt data-key="contact.dt.email">EMAIL</dt><dd><a href="mailto:simuoplabs@gmail.com">simuoplabs@gmail.com</a></dd></div>
+                            <div class="contact-detail"><dt data-key="contact.dt.coords">COORDS</dt><dd>38.232°N · 21.747°E</dd></div>
+                        </dl>
+                    </div>
+                    <form id="contact-form" class="contact-form reveal delay-1" action="https://formsubmit.co/simuoplabs@gmail.com" method="POST">
+                        <input type="hidden" name="startedAt" id="form-startedAt" />
+                        <input type="hidden" name="_next" id="form-next" />
+                        <input type="hidden" name="_captcha" value="true" />
+                        <input type="hidden" name="_autoresponse" id="form-autoresponse" />
+                        <input type="hidden" name="_subject" value="New transmission from SimUoPLabs site" />
+                        <input type="hidden" name="_template" value="table" />
+                        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+                        <label><span class="lbl" data-key="form.lbl.name">/ NAME</span><input type="text" name="name" id="name" autocomplete="name" data-placeholder-key="form.name" placeholder="Full Name / Ονοματεπώνυμο" required /></label>
+                        <label><span class="lbl" data-key="form.lbl.email">/ EMAIL</span><input type="email" name="email" id="email" autocomplete="email" data-placeholder-key="form.email" placeholder="you@domain.tld" required /></label>
+                        <label><span class="lbl" data-key="form.lbl.message">/ TRANSMISSION</span><textarea name="message" id="message" autocomplete="off" data-placeholder-key="form.message" placeholder="How can we help? / Πώς μπορούμε να βοηθήσουμε;" rows="4" required></textarea></label>
+                        <label class="form-consent"><input type="checkbox" name="privacy_consent" required /><span>I have read the <a href="privacy.html">Privacy Policy</a> and agree to the use of these details to respond to this enquiry. Do not include sensitive personal information.</span></label>
+                        <div class="submit-row">
+                            <button type="submit" id="contact-submit" class="btn">
+                                <span data-key="form.send">Send enquiry</span>
+                                <svg class="arrow" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
+                            </button>
+                            <div id="form-status" role="status" aria-live="polite"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="foot">
+        <div class="foot-inner">
+            <div class="foot-top">
+                <div class="foot-brand">
+                    <a class="logo" href="#home" aria-label="SimUoPLabs"><span class="logo-glyph" aria-hidden="true"></span>SimUoP<span>Labs</span></a>
+                    <p data-key="foot.tagline">Mechanical-engineering research team. Analysis-driven, hands-on, student-led. Patras, Greece.</p>
+                </div>
+                <div class="foot-col">
+                    <p class="footer-title" data-key="foot.col.programs">Programs</p>
+                    <ul>
+                        <li><a href="#research" data-key="footer.research">Research</a></li>
+                        <li><a href="#competitions" data-key="nav.competitions">Competitions</a></li>
+                        <li><a href="#stem" data-key="footer.stem">STEM Outreach</a></li>
+                        <li><a href="#partnerships" data-key="footer.partnerships">Partnerships</a></li>
+                        <li><a href="#sponsors" data-key="footer.sponsors">Sponsors</a></li>
+                    </ul>
+                </div>
+                <div class="foot-col">
+                    <p class="footer-title" data-key="foot.col.team">Team</p>
+                    <ul>
+                        <li><a href="#team" data-key="nav.team">Personnel</a></li>
+                        <li><a href="#faculty" data-key="nav.faculty">Faculty</a></li>
+                        <li><a href="#universities" data-key="footer.universities">Universities</a></li>
+                    </ul>
+                </div>
+                <div class="foot-col">
+                    <p class="footer-title" data-key="foot.col.contact">Contact</p>
+                    <ul>
+                        <li><a href="mailto:simuoplabs@gmail.com">simuoplabs@gmail.com</a></li>
+                        <li><a href="#contact" data-key="nav.contact">Contact form</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                    </ul>
+                    <div class="socials" style="margin-top:14px;" aria-label="Social media">
+                        <a href="https://www.youtube.com/@SimUoPLabs" target="_blank" rel="noopener noreferrer" aria-label="YouTube">YT</a>
+                        <a href="https://www.instagram.com/simuoplabs/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+                        <a href="https://www.linkedin.com/company/simuoplabs" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">IN</a>
+                        <a href="https://www.facebook.com/profile.php?id=61578088051788" target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a>
+                    </div>
+                </div>
+            </div>
+            <div class="foot-bottom">
+                <span data-key="foot.note">© SimUoPLabs / Koukouli, Patras / Mechanical Engineering, UoP</span>
+                <span class="signal" data-key="foot.motto">⌬ ANALYSIS DRIVES INNOVATION</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const translations = {
+                en: {
+                    pageTitle: 'SimUoPLabs / Analysis Drives Innovation',
+                    skip: 'Skip to main content',
+                    'menu.button': 'Menu',
+                    'tel.status': 'SYSTEMS / OPERATIONAL',
+                    'nav.about': 'About', 'nav.capabilities': 'Capabilities', 'nav.research': 'Research', 'nav.competitions': 'Competitions', 'nav.stem': 'STEM', 'nav.sponsors': 'Sponsors', 'nav.team': 'Team', 'nav.faculty': 'Faculty', 'nav.contact': 'Contact',
+                    'a11y.button': 'A11Y', 'a11y.title': 'Accessibility', 'a11y.desc': 'Adjust the interface for easier reading and navigation.', 'a11y.contrast': 'High contrast', 'a11y.text': 'Larger text', 'a11y.font': 'Readable font', 'a11y.links': 'Underline links', 'a11y.motion': 'Reduced motion', 'a11y.reset': 'Reset settings', 'a11y.toggle': 'Toggle',
+                    'meta.dossier': 'DOSSIER', 'meta.node': 'NODE', 'meta.node.val': 'KOUKOULI · PATRAS', 'meta.dept': 'DEPARTMENT', 'meta.dept.val': 'MECH. ENG. / UoP', 'meta.year': 'CYCLE',
+                    'hero.w1': 'Analysis', 'hero.w2': 'drives', 'hero.w3': 'innovation.',
+                    'hero.lead': 'A student-led mechanical-engineering research team at the <em>University of the Peloponnese</em>. We simulate, prototype, manufacture, and fly — bridging academic rigour with hands-on engineering across aerospace, motorsport, additive manufacturing, and STEM education.',
+                    'hero.explore': 'Explore Research', 'hero.contact': 'Open Channel',
+                    'sec.about': 'Manifest', 'sec.capabilities': 'Capabilities', 'sec.research': 'Active Research', 'sec.competitions': 'Competitions', 'sec.stem': 'STEM & Outreach', 'sec.partnerships': 'Partnerships', 'sec.sponsors': 'Sponsorship', 'sec.team': 'Personnel', 'sec.faculty': 'Faculty', 'sec.universities': 'Network', 'sec.contact': 'Channel',
+                    'about.title': 'Who we are, <em>and what we build.</em>',
+                    'about.p1': '<strong>SimUoPLabs</strong> is a student research team within the Department of Mechanical Engineering at the University of the Peloponnese. Under the guidance of <strong>Dr. Georgios Giannopoulos</strong> and <strong>Dr. Alexandros Kalarakis</strong>, we develop high-technology engineering solutions through analysis, experimentation, and manufacturing.',
+                    'about.p2': 'Our work threads computational tools, hands-on prototyping, and student-led research into a single workflow — from CFD and FEM, through SLS printing, to wind-tunnel validation and rocket test fires.',
+                    'stat.programs.label': 'PROGRAMS', 'stat.education.label': 'EDUCATION',
+                    'about.stat1': 'Formula Student / FSAE · CAN-SAT · Czech Rocket Challenge · EuRoC.',
+                    'about.stat2': 'STEM outreach and Certified Onshape Associate preparation.',
+                    'focus.title': 'Core focus areas',
+                    'focus.fluid.title': 'Fluid Analysis', 'focus.fluid.text': 'CFD, flow optimization, aerodynamics, ducts, nozzles and wind-tunnel testing.',
+                    'focus.struct.title': 'Structural Analysis', 'focus.struct.text': 'FEM, strength of materials, static and dynamic analysis, component optimization.',
+                    'focus.motors.title': 'Electric Motors', 'focus.motors.text': 'R&D in electric motors, control, efficiency and performance.',
+                    'focus.additive.title': 'Additive Manufacturing', 'focus.additive.text': 'FDM, SLS, SLM, material selection and process development.',
+                    'capabilities.title': 'Engineering <em>across the pipeline.</em>',
+                    'cap.cfd.title': 'CFD &amp; <em>aerodynamics</em>', 'cap.cfd.text': 'Flow simulation, aerodynamic surfaces, ducts, nozzles and performance optimization.',
+                    'cap.fem.title': 'FEM &amp; <em>materials</em>', 'cap.fem.text': 'Structural analysis, advanced materials, strength validation and design improvement.',
+                    'cap.motors.title': 'Electric <em>motors</em>', 'cap.motors.text': 'Motor performance, control concepts, efficiency and electromechanical systems.',
+                    'cap.print.title': 'Additive <em>manufacturing</em>', 'cap.print.text': 'FDM, SLS, SLM, design for manufacturing, material and process selection.',
+                    'research.title': 'Live programs, <em>under load.</em>',
+                    'research.subtitle': 'A multidisciplinary set of programs combining modern simulation, fabrication, testing and design tools.',
+                    'status.active': 'STATUS: ACTIVE',
+                    'spec.domain': 'DOMAIN', 'spec.phase': 'PHASE', 'spec.tags': 'TAGS',
+                    'research.laserus.title': 'Project <em>Laserus</em>', 'research.laserus.text': 'A low-cost, open-source SLS 3D printer aimed at industrial-grade results using blue diode-laser technology.', 'research.laserus.domain': 'Additive Manufacturing', 'research.laserus.phase': 'Hardware Prototype',
+                    'research.uas.title': 'Hypermiling <em>UAS</em>', 'research.uas.text': 'High-endurance pusher-propeller drone for wildfire detection, autonomous visual mapping and efficient aerial surveillance.', 'research.uas.domain': 'Aerospace · UAS', 'research.uas.phase': 'Flight Testing',
+                    'research.aero.title': 'Aerodynamic <em>development</em>', 'research.aero.text': 'Design and analysis for competition vehicles, drones, rockets, ducts and nozzles.', 'research.aero.domain': 'Aerodynamics', 'research.aero.phase': 'Continuous',
+                    'research.electrical.title': 'Electrical &amp; <em>control systems</em>', 'research.electrical.text': 'Support for motor systems, electronics, drone operation and experimental platforms.', 'research.electrical.domain': 'Electronics · Control', 'research.electrical.phase': 'Continuous',
+                    'wind.label': '⌬ WIND-TUNNEL ACCESS', 'wind.title': 'Wind tunnel — <em>operational.</em>', 'wind.text': 'The team uses the University of the Peloponnese wind-tunnel facility for aerodynamic testing and validation work.', 'wind.code': 'FACILITY · UoP-WT-01',
+                    'competitions.title': 'Theory becomes <em>hardware.</em>', 'competitions.subtitle': 'Competitions are how we turn coursework into deployable engineering systems.',
+                    'comp.formula.text': 'Vehicle engineering, aerodynamics, manufacturing and performance development.',
+                    'comp.cansat.text': 'Mission design, systems thinking, electronics, testing and data collection.',
+                    'comp.crc.text': 'Rocket design, simulation, manufacturing, testing and launch preparation.',
+                    'comp.euroc.text': 'European rocketry goals, high-level analysis, safety and integrated development.',
+                    'domain.motorsport': 'MOTORSPORT', 'domain.aerospace': 'AEROSPACE', 'domain.rocketry': 'ROCKETRY',
+                    'stem.title': 'Education builds <em>the next launch.</em>',
+                    'stem.p1': 'Our collaboration with <strong>2ο Λύκειο Κορωπίου</strong> introduces high-school students to engineering thinking, CAD, design literacy, 3D design, 3D printing and competition-based STEM learning.',
+                    'program.stem': 'Introduction to STEM', 'program.engineering': 'Introduction to Engineering', 'program.design2d': '2D Design Literacy', 'program.design3d': '3D Design', 'program.printing': '3D Printing',
+                    'tag.cert': 'CERT.', 'tag.racing': 'RACING', 'tag.aero': 'AEROSPACE',
+                    'stem.cert.title': 'Onshape <em>certification</em>', 'stem.cert.text': 'CAD training and preparation for the Certified Onshape Associate exam.',
+                    'stem.racing.title': 'STEM <em>Racing</em>', 'stem.racing.text': 'Introduction to motorsport engineering and F1 in Schools principles.',
+                    'stem.rocket.title': 'Rocket &amp; <em>CAN-SAT</em> prep', 'stem.rocket.text': 'Preparation for CAN-SAT and Czech Rocket Challenge activities.',
+                    'partnership.title': 'Fueling the <em>next generation.</em>',
+                    'partnership.tagline': '⌬ DSA RACING × SimUoPLabs', 'partnership.role': 'TECHNICAL SPONSOR',
+                    'partnership.heading': 'A high-school motorsport team — <em>built on simulation.</em>',
+                    'partnership.p1': 'SimUoPLabs is a proud sponsor of <strong>DSA Racing</strong>, a high-school team from the German School of Athens competing in the global <strong>F1 in Schools / STEM Racing</strong> challenge.',
+                    'partnership.p2': 'By supporting DSA Racing, we extend our expertise in aerodynamics and 3D manufacturing to student motorsport. Innovation has no age limit — our sponsorship provides the technical resources and mentorship required for success on the track.',
+                    'partnership.contact': 'Interested in a technical partnership? <a href="#contact">Open a channel →</a> to discuss how we can support your STEM initiative.',
+                    'sponsors.title': 'Build with <em>technical allies.</em>',
+                    'sponsors.heading': 'Sponsor opportunities',
+                    'sponsors.text': 'We welcome organizations that want to support materials, manufacturing, electronics, testing and STEM outreach.',
+                    'sponsors.button': 'View all sponsors',
+                    'team.title': 'Roster, <em>by discipline.</em>',
+                    'team.filippos': 'Team Lead and Aerodynamics', 'team.george': 'Aerodynamics Design and Analysis', 'team.dimitris': 'Manufacturing and Drone Operations', 'team.stefanos': 'Project Laserus Lead and 3D Printer Design', 'team.nikos': 'Electrical Lead', 'team.panagiotis': 'CFD Engineer', 'team.ilias': 'Materials Engineer',
+                    'role.projectLead': 'Project Lead', 'role.leadDesigner': 'Lead Designer', 'role.additive': 'Additive', 'role.electronics': 'Electronics', 'role.simulation': 'Simulation', 'role.materials': 'Materials',
+                    'faculty.title': 'Academic <em>advisors.</em>', 'faculty.subtitle': 'The team is guided by faculty from the Department of Mechanical Engineering at the University of the Peloponnese.',
+                    'faculty.giannopoulos.name': 'Dr. Georgios Giannopoulos', 'faculty.kalarakis.name': 'Dr. Alexandros Kalarakis', 'faculty.associate': 'Associate Professor',
+                    'faculty.giannopoulos.specialty': 'Expertise: Structural Analysis, Computational Mechanics, Static and Dynamic Analysis, and Advanced Materials.',
+                    'faculty.giannopoulos.bio': 'Research and teaching interests include the optimization of mechanical components.',
+                    'faculty.kalarakis.specialty': 'Expertise: Fluid Dynamics, Transport Phenomena Modeling, and Nano-structured Materials.',
+                    'faculty.kalarakis.bio': 'Director of the LAMS-UOP Laboratory, specializing in prototyping and characterization of nano-structured materials.',
+                    'faculty.profile': 'University Profile',
+                    'universities.title': 'Participating <em>universities.</em>', 'universities.subtitle': 'Students participate from multiple universities, strengthening collaboration, knowledge exchange and interdisciplinary development.',
+                    'universities.uop': 'University of the Peloponnese', 'universities.patras': 'University of Patras', 'universities.hmu': 'Hellenic Mediterranean University', 'universities.kit': 'Karlsruhe Institute of Technology',
+                    'country.greece': 'Greece · GR', 'country.germany': 'Germany · DE',
+                    'contact.heading': 'Open a <em>channel.</em>',
+                    'contact.title2': 'Research collaboration, sponsorship, or <em>student participation.</em>',
+                    'contact.text': 'Get in touch with SimUoPLabs for research collaboration, STEM initiatives, technical partnerships, sponsorships or student participation.',
+                    'contact.dt.location': 'LOCATION', 'contact.dt.dept': 'DEPARTMENT', 'contact.dt.email': 'EMAIL', 'contact.dt.coords': 'COORDS',
+                    'contact.location': 'Koukouli Campus, Patras, Greece', 'contact.department': 'UoP — Mechanical Engineering',
+                    'form.lbl.name': '/ NAME', 'form.lbl.email': '/ EMAIL', 'form.lbl.message': '/ TRANSMISSION',
+                    'form.name': 'Full Name / Ονοματεπώνυμο', 'form.email': 'you@domain.tld', 'form.message': 'How can we help? / Πώς μπορούμε να βοηθήσουμε;',
+                    'form.send': 'Send enquiry', 'form.invalid': 'Please complete all fields correctly.', 'form.suspicious': 'Suspicious submission. Please try again.', 'form.redirect': 'Routing to verification...',
+                    'foot.tagline': 'Mechanical-engineering research team. Analysis-driven, hands-on, student-led. Patras, Greece.',
+                    'foot.col.programs': 'Programs', 'foot.col.team': 'Team', 'foot.col.contact': 'Contact',
+                    'footer.research': 'Research', 'footer.stem': 'STEM Outreach', 'footer.partnerships': 'Partnerships', 'footer.sponsors': 'Sponsors', 'footer.universities': 'Universities',
+                    'foot.note': '© SimUoPLabs / Koukouli, Patras / Mechanical Engineering, UoP',
+                    'foot.motto': '⌬ ANALYSIS DRIVES INNOVATION'
+                },
+                el: {
+                    pageTitle: 'SimUoPLabs / Η Ανάλυση Οδηγεί την Καινοτομία',
+                    skip: 'Μετάβαση στο κύριο περιεχόμενο',
+                    'menu.button': 'Μενού',
+                    'tel.status': 'ΣΥΣΤΗΜΑΤΑ / ΕΝΕΡΓΑ',
+                    'nav.about': 'Ποιοι είμαστε', 'nav.capabilities': 'Δυνατότητες', 'nav.research': 'Έρευνα', 'nav.competitions': 'Διαγωνισμοί', 'nav.stem': 'STEM', 'nav.sponsors': 'Χορηγοί', 'nav.team': 'Ομάδα', 'nav.faculty': 'Καθηγητές', 'nav.contact': 'Επικοινωνία',
+                    'a11y.button': 'Α11Υ', 'a11y.title': 'Προσβασιμότητα', 'a11y.desc': 'Προσαρμόστε την εμφάνιση για ευκολότερη ανάγνωση και πλοήγηση.', 'a11y.contrast': 'Υψηλή αντίθεση', 'a11y.text': 'Μεγαλύτερα γράμματα', 'a11y.font': 'Ευανάγνωστη γραμματοσειρά', 'a11y.links': 'Υπογράμμιση συνδέσμων', 'a11y.motion': 'Μειωμένη κίνηση', 'a11y.reset': 'Επαναφορά', 'a11y.toggle': 'Αλλαγή',
+                    'meta.dossier': 'ΦΑΚΕΛΟΣ', 'meta.node': 'ΚΟΜΒΟΣ', 'meta.node.val': 'ΚΟΥΚΟΥΛΙ · ΠΑΤΡΑ', 'meta.dept': 'ΤΜΗΜΑ', 'meta.dept.val': 'ΜΗΧΑΝΟΛΟΓΩΝ / UoP', 'meta.year': 'ΚΥΚΛΟΣ',
+                    'hero.w1': 'Η Ανάλυση', 'hero.w2': 'οδηγεί την', 'hero.w3': 'καινοτομία.',
+                    'hero.lead': 'Μια φοιτητική ερευνητική ομάδα μηχανολόγων μηχανικών στο <em>Πανεπιστήμιο Πελοποννήσου</em>. Προσομοιώνουμε, σχεδιάζουμε πρωτότυπα, κατασκευάζουμε και πετάμε — γεφυρώνοντας την ακαδημαϊκή αυστηρότητα με την πρακτική μηχανική σε αεροδιαστημική, μηχανοκίνητο, προσθετική κατασκευή και εκπαίδευση STEM.',
+                    'hero.explore': 'Δες την Έρευνα', 'hero.contact': 'Άνοιξε Δίαυλο',
+                    'sec.about': 'Δήλωση', 'sec.capabilities': 'Δυνατότητες', 'sec.research': 'Ενεργή Έρευνα', 'sec.competitions': 'Διαγωνισμοί', 'sec.stem': 'STEM & Δράσεις', 'sec.partnerships': 'Συνεργασίες', 'sec.sponsors': 'Χορηγίες', 'sec.team': 'Προσωπικό', 'sec.faculty': 'Καθηγητές', 'sec.universities': 'Δίκτυο', 'sec.contact': 'Δίαυλος',
+                    'about.title': 'Ποιοι είμαστε, <em>και τι κατασκευάζουμε.</em>',
+                    'about.p1': 'Το <strong>SimUoPLabs</strong> είναι φοιτητική ερευνητική ομάδα του Τμήματος Μηχανολόγων Μηχανικών του Πανεπιστημίου Πελοποννήσου. Υπό την καθοδήγηση του <strong>Dr. Γεώργιου Γιαννόπουλου</strong> και του <strong>Dr. Αλέξανδρου Καλαράκη</strong>, αναπτύσσουμε λύσεις υψηλής τεχνολογίας μέσα από ανάλυση, πειραματισμό και κατασκευή.',
+                    'about.p2': 'Η δουλειά μας συνδυάζει υπολογιστικά εργαλεία, πρακτική πρωτοτυποποίηση και φοιτητική έρευνα — από CFD και FEM, μέσω SLS printing, έως δοκιμές αεροσήραγγας και πυραυλικές εκτοξεύσεις.',
+                    'stat.programs.label': 'ΠΡΟΓΡΑΜΜΑΤΑ', 'stat.education.label': 'ΕΚΠΑΙΔΕΥΣΗ',
+                    'about.stat1': 'Formula Student / FSAE · CAN-SAT · Czech Rocket Challenge · EuRoC.',
+                    'about.stat2': 'Δράσεις STEM και προετοιμασία Certified Onshape Associate.',
+                    'focus.title': 'Κύριοι τομείς εστίασης',
+                    'focus.fluid.title': 'Ανάλυση Ρευστών', 'focus.fluid.text': 'CFD, βελτιστοποίηση ροής, αεροδυναμική, αγωγοί, ακροφύσια, δοκιμές σε αεροσήραγγα.',
+                    'focus.struct.title': 'Στατική & Δυναμική Ανάλυση', 'focus.struct.text': 'FEM, αντοχή υλικών, στατική και δυναμική ανάλυση, βελτιστοποίηση εξαρτημάτων.',
+                    'focus.motors.title': 'Ηλεκτρικοί Κινητήρες', 'focus.motors.text': 'Έρευνα και ανάπτυξη σε ηλεκτρικούς κινητήρες, έλεγχο, απόδοση.',
+                    'focus.additive.title': 'Προσθετική Κατασκευή', 'focus.additive.text': 'FDM, SLS, SLM, επιλογή υλικών και ανάπτυξη διαδικασιών.',
+                    'capabilities.title': 'Μηχανική <em>σε όλο τον αγωγό.</em>',
+                    'cap.cfd.title': 'CFD &amp; <em>αεροδυναμική</em>', 'cap.cfd.text': 'Προσομοίωση ροής, αεροδυναμικές επιφάνειες, αγωγοί, ακροφύσια, βελτιστοποίηση.',
+                    'cap.fem.title': 'FEM &amp; <em>υλικά</em>', 'cap.fem.text': 'Στατική ανάλυση, προηγμένα υλικά, επαλήθευση αντοχής, βελτίωση σχεδίασης.',
+                    'cap.motors.title': 'Ηλεκτρικοί <em>κινητήρες</em>', 'cap.motors.text': 'Απόδοση κινητήρων, έλεγχος, αποδοτικότητα, ηλεκτρομηχανολογικά συστήματα.',
+                    'cap.print.title': 'Προσθετική <em>κατασκευή</em>', 'cap.print.text': 'FDM, SLS, SLM, σχεδίαση για κατασκευή και επιλογή υλικών και διεργασιών.',
+                    'research.title': 'Ζωντανά προγράμματα, <em>υπό φορτίο.</em>',
+                    'research.subtitle': 'Διεπιστημονικά προγράμματα με σύγχρονα εργαλεία προσομοίωσης, κατασκευής, δοκιμών και σχεδίασης.',
+                    'status.active': 'ΚΑΤΑΣΤΑΣΗ: ΕΝΕΡΓΟ',
+                    'spec.domain': 'ΤΟΜΕΑΣ', 'spec.phase': 'ΦΑΣΗ', 'spec.tags': 'ΕΤΙΚΕΤΕΣ',
+                    'research.laserus.title': 'Project <em>Laserus</em>', 'research.laserus.text': 'Ανάπτυξη χαμηλού κόστους, ανοιχτού κώδικα SLS 3D printer ικανού για βιομηχανικού επιπέδου αποτελέσματα με τεχνολογία μπλε diode laser.', 'research.laserus.domain': 'Προσθετική Κατασκευή', 'research.laserus.phase': 'Πρωτότυπο Hardware',
+                    'research.uas.title': 'Hypermiling <em>UAS</em>', 'research.uas.text': 'Drone υψηλής αυτονομίας με pusher-propeller για ανίχνευση πυρκαγιών, αυτόνομη οπτική χαρτογράφηση και αποδοτική επιτήρηση.', 'research.uas.domain': 'Αεροδιαστημική · UAS', 'research.uas.phase': 'Δοκιμές Πτήσης',
+                    'research.aero.title': 'Αεροδυναμική <em>ανάπτυξη</em>', 'research.aero.text': 'Σχεδίαση και ανάλυση για διαγωνισμούς, drones, πυραύλους, αγωγούς και ακροφύσια.', 'research.aero.domain': 'Αεροδυναμική', 'research.aero.phase': 'Συνεχής',
+                    'research.electrical.title': 'Ηλεκτρικά &amp; <em>συστήματα ελέγχου</em>', 'research.electrical.text': 'Υποστήριξη συστημάτων κινητήρων, ηλεκτρονικά, λειτουργία drone και πειραματικές πλατφόρμες.', 'research.electrical.domain': 'Ηλεκτρονικά · Έλεγχος', 'research.electrical.phase': 'Συνεχής',
+                    'wind.label': '⌬ ΑΠΟΚΛΕΙΣΤΙΚΗ ΠΡΟΣΒΑΣΗ', 'wind.title': 'Αεροσήραγγα — <em>επιχειρησιακή.</em>', 'wind.text': 'Η μοναδική φοιτητική ομάδα εκπαιδευμένη στη λειτουργία της αεροσήραγγας του Πανεπιστημίου Πελοποννήσου.', 'wind.code': 'ΕΓΚΑΤΑΣΤΑΣΗ · UoP-WT-01',
+                    'competitions.title': 'Η θεωρία γίνεται <em>υλικό.</em>', 'competitions.subtitle': 'Οι διαγωνισμοί είναι ο τρόπος με τον οποίο μετατρέπουμε τις γνώσεις σε λειτουργικά μηχανολογικά συστήματα.',
+                    'comp.formula.text': 'Μηχανική οχημάτων, αεροδυναμική, κατασκευή και ανάπτυξη απόδοσης.',
+                    'comp.cansat.text': 'Σχεδιασμός αποστολής, συστημική σκέψη, ηλεκτρονικά, δοκιμές και συλλογή δεδομένων.',
+                    'comp.crc.text': 'Σχεδίαση πυραύλου, προσομοίωση, κατασκευή, δοκιμές και προετοιμασία εκτόξευσης.',
+                    'comp.euroc.text': 'Ευρωπαϊκοί στόχοι πυραυλικής, υψηλού επιπέδου ανάλυση, ασφάλεια και ολοκληρωμένη ανάπτυξη.',
+                    'domain.motorsport': 'ΜΗΧΑΝΟΚΙΝΗΤΟ', 'domain.aerospace': 'ΑΕΡΟΔΙΑΣΤ.', 'domain.rocketry': 'ΠΥΡΑΥΛΙΚΗ',
+                    'stem.title': 'Η εκπαίδευση χτίζει <em>την επόμενη εκτόξευση.</em>',
+                    'stem.p1': 'Η συνεργασία μας με το <strong>2ο Λύκειο Κορωπίου</strong> εισάγει μαθητές Λυκείου στη μηχανική σκέψη, στο CAD, στον σχεδιαστικό γραμματισμό, στο 3D design, στο 3D printing και στη μάθηση μέσω STEM διαγωνισμών.',
+                    'program.stem': 'Εισαγωγή στο STEM', 'program.engineering': 'Εισαγωγή στη Μηχανική', 'program.design2d': 'Σχεδιαστικός Γραμματισμός 2D', 'program.design3d': 'Σχεδίαση 3D', 'program.printing': '3D Printing',
+                    'tag.cert': 'ΠΙΣΤΟΠ.', 'tag.racing': 'RACING', 'tag.aero': 'ΑΕΡΟΔΙΑΣΤ.',
+                    'stem.cert.title': 'Πιστοποίηση <em>Onshape</em>', 'stem.cert.text': 'Εκπαίδευση CAD και προετοιμασία για την εξέταση Certified Onshape Associate.',
+                    'stem.racing.title': 'STEM <em>Racing</em>', 'stem.racing.text': 'Εισαγωγή στη μηχανική του motorsport και στις αρχές του F1 in Schools.',
+                    'stem.rocket.title': 'Προετοιμασία Rocket &amp; <em>CAN-SAT</em>', 'stem.rocket.text': 'Προετοιμασία για δράσεις CAN-SAT και Czech Rocket Challenge.',
+                    'partnership.title': 'Στηρίζοντας την <em>επόμενη γενιά.</em>',
+                    'partnership.tagline': '⌬ DSA RACING × SimUoPLabs', 'partnership.role': 'ΤΕΧΝΙΚΟΣ ΧΟΡΗΓΟΣ',
+                    'partnership.heading': 'Μια μαθητική ομάδα motorsport — <em>χτισμένη πάνω στην προσομοίωση.</em>',
+                    'partnership.p1': 'Το SimUoPLabs είναι περήφανος χορηγός της <strong>DSA Racing</strong>, μαθητικής ομάδας από τη Γερμανική Σχολή Αθηνών που συμμετέχει στον παγκόσμιο διαγωνισμό <strong>F1 in Schools / STEM Racing</strong>.',
+                    'partnership.p2': 'Υποστηρίζοντας την DSA Racing, μεταφέρουμε την τεχνογνωσία μας στην αεροδυναμική και την 3D κατασκευή στο μαθητικό motorsport. Η καινοτομία δεν έχει ηλικιακό όριο — η χορηγία μας παρέχει τους τεχνικούς πόρους και την καθοδήγηση για επιτυχία στην πίστα.',
+                    'partnership.contact': 'Ενδιαφέρεστε για τεχνική συνεργασία; <a href="#contact">Άνοιξε δίαυλο →</a> για να συζητήσουμε πώς μπορούμε να υποστηρίξουμε τη STEM πρωτοβουλία σας.',
+                    'sponsors.title': 'Χτίζουμε με <em>τεχνικούς συμμάχους.</em>',
+                    'sponsors.heading': 'Ευκαιρίες χορηγίας',
+                    'sponsors.text': 'Καλωσορίζουμε οργανισμούς που θέλουν να υποστηρίξουν υλικά, κατασκευή, ηλεκτρονικά, δοκιμές και STEM δράσεις.',
+                    'sponsors.button': 'Δείτε όλους τους χορηγούς',
+                    'team.title': 'Ομάδα, <em>ανά ειδικότητα.</em>',
+                    'team.filippos': 'Team Lead και Αεροδυναμική', 'team.george': 'Αεροδυναμικός Σχεδιασμός & Ανάλυση', 'team.dimitris': 'Κατασκευή & Χειρισμός Drone', 'team.stefanos': 'Project Laserus Lead & Σχεδιασμός 3D Printer', 'team.nikos': 'Electrical Lead', 'team.panagiotis': 'CFD Engineer', 'team.ilias': 'Materials Engineer',
+                    'role.projectLead': 'Project Lead', 'role.leadDesigner': 'Lead Designer', 'role.additive': 'Προσθετική', 'role.electronics': 'Ηλεκτρονικά', 'role.simulation': 'Προσομοίωση', 'role.materials': 'Υλικά',
+                    'faculty.title': 'Ακαδημαϊκοί <em>σύμβουλοι.</em>', 'faculty.subtitle': 'Η ομάδα καθοδηγείται από καθηγητές του Τμήματος Μηχανολόγων Μηχανικών του Πανεπιστημίου Πελοποννήσου.',
+                    'faculty.giannopoulos.name': 'Dr. Γεώργιος Γιαννόπουλος', 'faculty.kalarakis.name': 'Dr. Αλέξανδρος Καλαράκης', 'faculty.associate': 'Αναπληρωτής Καθηγητής',
+                    'faculty.giannopoulos.specialty': 'Εξειδίκευση: Στατική και δυναμική ανάλυση, υπολογιστική μηχανική και προηγμένα υλικά.',
+                    'faculty.giannopoulos.bio': 'Τα ερευνητικά και διδακτικά ενδιαφέροντα περιλαμβάνουν τη βελτιστοποίηση μηχανολογικών εξαρτημάτων.',
+                    'faculty.kalarakis.specialty': 'Εξειδίκευση: Ρευστοδυναμική, μοντελοποίηση φαινομένων μεταφοράς και νανοδομημένα υλικά.',
+                    'faculty.kalarakis.bio': 'Διευθυντής του εργαστηρίου LAMS-UOP, με εξειδίκευση στην πρωτοτυποποίηση και χαρακτηρισμό νανοδομημένων υλικών.',
+                    'faculty.profile': 'Προφίλ Πανεπιστημίου',
+                    'universities.title': 'Συμμετέχοντα <em>πανεπιστήμια.</em>', 'universities.subtitle': 'Συμμετέχουν φοιτητές από διαφορετικά πανεπιστήμια, ενισχύοντας τη συνεργασία, την ανταλλαγή γνώσεων και τη διεπιστημονική ανάπτυξη.',
+                    'universities.uop': 'Πανεπιστήμιο Πελοποννήσου', 'universities.patras': 'Πανεπιστήμιο Πατρών', 'universities.hmu': 'Ελληνικό Μεσογειακό Πανεπιστήμιο', 'universities.kit': 'Karlsruhe Institute of Technology',
+                    'country.greece': 'Ελλάδα · GR', 'country.germany': 'Γερμανία · DE',
+                    'contact.heading': 'Άνοιξε <em>δίαυλο.</em>',
+                    'contact.title2': 'Ερευνητική συνεργασία, χορηγία ή <em>συμμετοχή φοιτητών.</em>',
+                    'contact.text': 'Επικοινωνήστε με το SimUoPLabs για ερευνητικές συνεργασίες, STEM δράσεις, τεχνικές συνεργασίες, χορηγίες ή συμμετοχή φοιτητών.',
+                    'contact.dt.location': 'ΤΟΠΟΘΕΣΙΑ', 'contact.dt.dept': 'ΤΜΗΜΑ', 'contact.dt.email': 'EMAIL', 'contact.dt.coords': 'ΣΥΝΤΕΤ.',
+                    'contact.location': 'Πανεπιστημιούπολη Κουκούλι, Πάτρα, Ελλάδα', 'contact.department': 'UoP — Μηχανολόγων Μηχανικών',
+                    'form.lbl.name': '/ ΟΝΟΜΑ', 'form.lbl.email': '/ EMAIL', 'form.lbl.message': '/ ΜΕΤΑΔΟΣΗ',
+                    'form.name': 'Ονοματεπώνυμο / Full Name', 'form.email': 'εσυ@τομέας.tld', 'form.message': 'Πώς μπορούμε να βοηθήσουμε; / How can we help?',
+                    'form.send': 'Αποστολή αιτήματος', 'form.invalid': 'Συμπληρώστε σωστά όλα τα πεδία.', 'form.suspicious': 'Ύποπτη αποστολή. Δοκιμάστε ξανά.', 'form.redirect': 'Δρομολόγηση σε επαλήθευση...',
+                    'foot.tagline': 'Ερευνητική ομάδα μηχανολόγων μηχανικών. Καθοδηγούμενη από την ανάλυση, με πρακτική προσέγγιση. Πάτρα, Ελλάδα.',
+                    'foot.col.programs': 'Προγράμματα', 'foot.col.team': 'Ομάδα', 'foot.col.contact': 'Επικοινωνία',
+                    'footer.research': 'Έρευνα', 'footer.stem': 'STEM Δράσεις', 'footer.partnerships': 'Συνεργασίες', 'footer.sponsors': 'Χορηγοί', 'footer.universities': 'Πανεπιστήμια',
+                    'foot.note': '© SimUoPLabs / Κουκούλι, Πάτρα / Μηχανολόγων Μηχανικών, UoP',
+                    'foot.motto': '⌬ Η ΑΝΑΛΥΣΗ ΟΔΗΓΕΙ ΤΗΝ ΚΑΙΝΟΤΟΜΙΑ'
+                }
+            };
+
+            const features = ['high-contrast', 'large-text', 'readable-font', 'underline-links', 'reduced-motion'];
+            const langSelect = document.getElementById('langSelect');
+            const a11yToggle = document.getElementById('a11yToggle');
+            const a11yPanel = document.getElementById('a11yPanel');
+            const a11yReset = document.getElementById('a11yReset');
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            const cForm = document.getElementById('contact-form');
+            const cStatus = document.getElementById('form-status');
+            const cSubmit = document.getElementById('contact-submit');
+            const startedAtInput = document.getElementById('form-startedAt');
+            const nextInput = document.getElementById('form-next');
+            const autoReplyInput = document.getElementById('form-autoresponse');
+            const clockEl = document.getElementById('clock-time');
+
+            function safeGet(key, fallback) { try { return localStorage.getItem(key) || fallback; } catch (e) { return fallback; } }
+            function safeSet(key, value) { try { localStorage.setItem(key, value); } catch (e) {} }
+
+            function translate(lang) {
+                const dict = translations[lang] || translations.en;
+                document.documentElement.lang = lang;
+                document.title = dict.pageTitle;
+                document.querySelectorAll('[data-key]').forEach(function (el) {
+                    const key = el.getAttribute('data-key');
+                    if (!dict[key]) return;
+                    if (el.getAttribute('data-html') === 'true' || /<\w/.test(dict[key])) el.innerHTML = dict[key];
+                    else el.textContent = dict[key];
+                });
+                document.querySelectorAll('[data-placeholder-key]').forEach(function (el) {
+                    const key = el.getAttribute('data-placeholder-key');
+                    if (dict[key]) el.setAttribute('placeholder', dict[key]);
+                });
+                if (langSelect) langSelect.value = lang;
+                setAutoReply('');
+            }
+
+            function setAutoReply(name) {
+                if (!autoReplyInput) return;
+                const lang = safeGet('simuoplabs_lang', 'en');
+                const firstName = String(name || '').trim().split(' ')[0];
+                if (lang === 'el') autoReplyInput.value = 'Γεια' + (firstName ? ', ' + firstName : '') + '! Ευχαριστούμε που επικοινωνήσατε με το SimUoPLabs. Λάβαμε το μήνυμά σας και θα απαντήσουμε σύντομα. — Ομάδα SimUoPLabs';
+                else autoReplyInput.value = 'Hi' + (firstName ? ', ' + firstName : '') + '! Thanks for contacting SimUoPLabs. We received your message and will get back to you shortly. — SimUoPLabs Team';
+            }
+
+            function setFeature(feature, enabled) {
+                document.documentElement.classList.toggle('a11y-' + feature, enabled);
+                const btn = document.querySelector('[data-feature="' + feature + '"]');
+                if (btn) btn.setAttribute('aria-pressed', enabled ? 'true' : 'false');
+                safeSet('simuoplabs_' + feature, enabled ? '1' : '0');
+            }
+            function loadFeatures() { features.forEach(function (feature) { setFeature(feature, safeGet('simuoplabs_' + feature, '0') === '1'); }); }
+
+            function tickClock() {
+                if (!clockEl) return;
+                const now = new Date();
+                const pad = n => String(n).padStart(2, '0');
+                clockEl.textContent = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
+            }
+            tickClock();
+            setInterval(tickClock, 1000);
+
+            if (startedAtInput) startedAtInput.value = String(Date.now());
+            if (nextInput) nextInput.value = window.location.href.split('#')[0] + '#contact';
+            translate(safeGet('simuoplabs_lang', 'en'));
+            loadFeatures();
+
+            if (langSelect) langSelect.addEventListener('change', function () { safeSet('simuoplabs_lang', langSelect.value); translate(langSelect.value); });
+            if (a11yToggle && a11yPanel) a11yToggle.addEventListener('click', function (e) { e.stopPropagation(); const isOpen = !a11yPanel.classList.contains('open'); a11yPanel.classList.toggle('open', isOpen); a11yToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false'); });
+            if (menuToggle && navMenu) menuToggle.addEventListener('click', function () { const isOpen = !navMenu.classList.contains('open'); navMenu.classList.toggle('open', isOpen); menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false'); });
+            document.querySelectorAll('.nav-menu a').forEach(function (link) { link.addEventListener('click', function () { if (navMenu) navMenu.classList.remove('open'); if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false'); }); });
+            document.querySelectorAll('[data-feature]').forEach(function (btn) { btn.addEventListener('click', function () { const feature = btn.getAttribute('data-feature'); const enabled = btn.getAttribute('aria-pressed') !== 'true'; setFeature(feature, enabled); }); });
+            if (a11yReset) a11yReset.addEventListener('click', function () { features.forEach(function (feature) { setFeature(feature, false); }); });
+            document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && a11yPanel && a11yPanel.classList.contains('open')) { a11yPanel.classList.remove('open'); if (a11yToggle) a11yToggle.setAttribute('aria-expanded', 'false'); } });
+            document.addEventListener('click', function (event) { if (a11yPanel && a11yToggle && !a11yPanel.contains(event.target) && !a11yToggle.contains(event.target)) { a11yPanel.classList.remove('open'); a11yToggle.setAttribute('aria-expanded', 'false'); } });
+
+            function validEmail(value) { const text = String(value || '').trim(); return text.indexOf('@') > 0 && text.indexOf('.') > 0 && text.length > 5; }
+            if (cForm) cForm.addEventListener('submit', function (event) {
+                const lang = safeGet('simuoplabs_lang', 'en');
+                const dict = translations[lang] || translations.en;
+                const data = new FormData(cForm);
+                const name = String(data.get('name') || '').trim();
+                const email = String(data.get('email') || '').trim();
+                const message = String(data.get('message') || '').trim();
+                const startedAt = Number(data.get('startedAt') || 0);
+                const tookMs = Date.now() - startedAt;
+                if (!name || !validEmail(email) || !message) {
+                    event.preventDefault();
+                    if (cStatus) { cStatus.textContent = '✕ ' + dict['form.invalid']; cStatus.className = 'error'; }
+                    return;
+                }
+                if (!startedAt || tookMs < 3000) {
+                    event.preventDefault();
+                    if (cStatus) { cStatus.textContent = '✕ ' + dict['form.suspicious']; cStatus.className = 'error'; }
+                    return;
+                }
+                setAutoReply(name);
+                if (cSubmit) cSubmit.disabled = true;
+                if (cStatus) { cStatus.textContent = '→ ' + dict['form.redirect']; cStatus.className = 'ok'; }
+            });
+
+            // ───────── WIND TUNNEL (Three.js) ─────────
+            const windSpeedEl = document.getElementById('wind-speed');
+            let lastScrollY = window.scrollY || 0;
+            let scrollImpulse = 0;   // raw, decays
+            let scrollVel = 0;       // smoothed, drives visuals
+            window.addEventListener('scroll', function () {
+                const dy = window.scrollY - lastScrollY;
+                lastScrollY = window.scrollY;
+                scrollImpulse = Math.min(scrollImpulse + Math.abs(dy) * 0.05, 8);
+            }, { passive: true });
+
+            function startWindTunnel() {
+                const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+                    || document.documentElement.classList.contains('a11y-reduced-motion');
+                const isMobile = window.innerWidth < 760;
+
+                // Smooth scroll velocity loop (drives wind-speed readout regardless of canvas state)
+                (function pump() {
+                    requestAnimationFrame(pump);
+                    scrollVel += (scrollImpulse - scrollVel) * 0.1;
+                    scrollImpulse *= 0.93;
+                    if (windSpeedEl) {
+                        const v = (4 + scrollVel * 16);
+                        windSpeedEl.textContent = (v < 10 ? '0' : '') + v.toFixed(1);
+                    }
+                })();
+
+                if (reduced) return;
+
+                // ── Hero airfoil: Joukowski conformal mapping + Kutta condition ──
+                // ζ = z + a²/z maps a circle in the z-plane to an airfoil in the ζ-plane.
+                // Place a cylinder of radius R at z_c = (-eps, +delta) so that the circle
+                // passes through z = a (the trailing-edge mapping pre-image). The Kutta
+                // condition then fixes the circulation Γ = -4πUR sin(α + β), which is
+                // exactly what generates lift in this model.
+                (function hero() {
+                    const canvas = document.getElementById('heroCanvas');
+                    if (!canvas) return;
+                    const ctx = canvas.getContext('2d');
+                    if (!ctx) return;
+                    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+                    let W = 400, H = 320;
+                    function resize() {
+                        const w = canvas.clientWidth || 400;
+                        const h = Math.max(canvas.clientHeight, 280);
+                        canvas.width  = Math.round(w * dpr);
+                        canvas.height = Math.round(h * dpr);
+                        W = w; H = h;
+                        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                        ctx.clearRect(0, 0, W, H);
+                    }
+                    resize();
+                    if (window.ResizeObserver) new ResizeObserver(resize).observe(canvas);
+                    else window.addEventListener('resize', resize);
+
+                    // Joukowski parameters (tuned to resemble a NACA 2412-ish cambered airfoil)
+                    const a     = 0.5;                                  // transform scale; trailing edge at ζ = 2a
+                    const eps   = 0.085;                                // thickness offset
+                    const delta = 0.06;                                 // camber offset
+                    const cx = -eps, cy = delta;                        // cylinder center in z-plane
+                    const R    = Math.hypot(a + eps, delta);            // cylinder radius (passes through z = a)
+                    const beta = Math.atan2(delta, a + eps);            // camber angle for Kutta
+                    const U    = 1.0;                                   // freestream speed (normalized)
+                    const baseAlpha = 6 * Math.PI / 180;                // 6° AoA matches the figure's caption
+                    let alpha = baseAlpha;
+
+                    // Sample airfoil silhouette once: walk the cylinder, map each point through ζ = z + a²/z
+                    const outline = (function () {
+                        const N = 160, pts = new Float64Array(N * 2);
+                        for (let i = 0; i < N; i++) {
+                            const th = 2 * Math.PI * i / N;
+                            const zx = cx + R * Math.cos(th);
+                            const zy = cy + R * Math.sin(th);
+                            const d = zx * zx + zy * zy;
+                            pts[i * 2]     = zx + a * a * zx / d;
+                            pts[i * 2 + 1] = zy - a * a * zy / d;
+                        }
+                        return pts;
+                    })();
+
+                    // World→screen transform. Airfoil chord ≈ 2 in ζ-space; we want it ~58% of width.
+                    function scale() { return Math.min(W * 0.30, H * 0.42); }
+                    function worldToScreen(wx, wy, out) {
+                        const s = scale();
+                        out[0] = W * 0.5 + wx * s;
+                        out[1] = H * 0.5 - wy * s;
+                    }
+
+                    // Inverse Joukowski: z = (ζ ± √(ζ² - 4a²)) / 2; pick the root outside the cylinder.
+                    // tmp[0..2] = zx, zy, |z - z_c|²
+                    function invJ(wx, wy, tmp) {
+                        // (ζ² - 4a²) = (wx² - wy² - 4a²) + i·(2 wx wy)
+                        const rx = wx * wx - wy * wy - 4 * a * a;
+                        const ry = 2 * wx * wy;
+                        const r  = Math.hypot(rx, ry);
+                        let sx = Math.sqrt(Math.max((r + rx) * 0.5, 0));
+                        let sy = Math.sqrt(Math.max((r - rx) * 0.5, 0));
+                        if (ry < 0) sy = -sy;
+                        // candidates
+                        const z1x = (wx + sx) * 0.5, z1y = (wy + sy) * 0.5;
+                        const z2x = (wx - sx) * 0.5, z2y = (wy - sy) * 0.5;
+                        const d1 = (z1x - cx) * (z1x - cx) + (z1y - cy) * (z1y - cy);
+                        const d2 = (z2x - cx) * (z2x - cx) + (z2y - cy) * (z2y - cy);
+                        if (d1 >= d2) { tmp[0] = z1x; tmp[1] = z1y; tmp[2] = d1; }
+                        else          { tmp[0] = z2x; tmp[1] = z2y; tmp[2] = d2; }
+                    }
+
+                    // Velocity at world point (wx, wy). Returns into out[0..1]; out[2] is "valid" flag.
+                    const _z = [0, 0, 0];
+                    function velocity(wx, wy, out) {
+                        invJ(wx, wy, _z);
+                        const zx = _z[0], zy = _z[1];
+                        if (_z[2] < R * R * 1.0001) { out[2] = 0; return; }   // inside / on the cylinder
+                        const dzx = zx - cx, dzy = zy - cy;
+                        const cosA = Math.cos(alpha), sinA = Math.sin(alpha);
+
+                        // Term 1: U·e^(-iα)
+                        let dwx = U * cosA;
+                        let dwy = -U * sinA;
+
+                        // Term 2: -U·R²·e^(iα) / (z - z_c)²
+                        const sx2 = dzx * dzx - dzy * dzy;
+                        const sy2 = 2 * dzx * dzy;
+                        const sn  = sx2 * sx2 + sy2 * sy2;
+                        const i2x =  sx2 / sn;
+                        const i2y = -sy2 / sn;
+                        const t2x = U * R * R * cosA;
+                        const t2y = U * R * R * sinA;
+                        dwx -= t2x * i2x - t2y * i2y;
+                        dwy -= t2x * i2y + t2y * i2x;
+
+                        // Term 3: -i·Γ/(2π) · 1/(z - z_c)   with Γ from Kutta condition
+                        const Gamma = -4 * Math.PI * U * R * Math.sin(alpha + beta);
+                        const dn  = dzx * dzx + dzy * dzy;
+                        const ix  =  dzx / dn;
+                        const iy  = -dzy / dn;
+                        const k   = Gamma / (2 * Math.PI);
+                        // (-i·k)·(ix + i·iy) = k·iy - i·k·ix
+                        dwx += k * iy;
+                        dwy -= k * ix;
+
+                        // Divide by dζ/dz = 1 - a²/z²
+                        const zn   = zx * zx + zy * zy;
+                        const zn2  = zn * zn;
+                        const dzdr = 1 - a * a * (zx * zx - zy * zy) / zn2;
+                        const dzdi = a * a * 2 * zx * zy / zn2;
+                        const dd   = dzdr * dzdr + dzdi * dzdi;
+                        const ur   = (dwx * dzdr + dwy * dzdi) / dd;
+                        const ui   = (dwy * dzdr - dwx * dzdi) / dd;
+                        // dw/dζ = u - i·v  →  velocity = (ur, -ui)
+                        out[0] = ur;
+                        out[1] = -ui;
+                        out[2] = 1;
+                    }
+
+                    // Particles
+                    const N = isMobile ? 320 : 700;
+                    const px  = new Float32Array(N);
+                    const py  = new Float32Array(N);
+                    const age = new Float32Array(N);
+                    function spawn(i, anywhere) {
+                        px[i]  = anywhere ? (Math.random() * 4 - 2) : (-2.05 - Math.random() * 0.25);
+                        py[i]  = (Math.random() - 0.5) * 1.8;
+                        age[i] = 0;
+                    }
+                    for (let i = 0; i < N; i++) spawn(i, true);
+
+                    // Mouse parallax modulates AoA — vertical motion changes α, horizontal nudges it slightly
+                    let mx = 0, my = 0, tmx = 0, tmy = 0;
+                    const figure = canvas.parentElement;
+                    figure.addEventListener('mousemove', function (e) {
+                        const r = figure.getBoundingClientRect();
+                        tmx = (e.clientX - r.left) / r.width  - 0.5;
+                        tmy = (e.clientY - r.top)  / r.height - 0.5;
+                    });
+                    figure.addEventListener('mouseleave', function () { tmx = 0; tmy = 0; });
+
+                    const _v  = [0, 0, 0];
+                    const _sp = [0, 0];
+                    let t = 0;
+                    let animationFrame = 0;
+                    let animationRunning = false;
+                    function loop() {
+                        if (!animationRunning) return;
+                        animationFrame = requestAnimationFrame(loop);
+                        t += 0.016;
+                        mx += (tmx - mx) * 0.06;
+                        my += (tmy - my) * 0.06;
+                        // AoA: base + slow oscillation + mouse Y + a touch of scroll energy
+                        alpha = baseAlpha + Math.sin(t * 0.4) * 0.04 - my * 0.45 + scrollVel * 0.025;
+                        // hard clamp so the inversion stays well-conditioned
+                        if (alpha >  0.45) alpha =  0.45;
+                        if (alpha < -0.30) alpha = -0.30;
+
+                        // Persistence-of-vision trails: erode alpha each frame so the figure's
+                        // CSS grid background remains visible where flow has thinned out.
+                        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                        ctx.globalCompositeOperation = 'destination-out';
+                        ctx.fillStyle = 'rgba(0, 0, 0, 0.16)';
+                        ctx.fillRect(0, 0, W, H);
+                        ctx.globalCompositeOperation = 'source-over';
+
+                        const dt = 0.014 + scrollVel * 0.020;
+
+                        for (let i = 0; i < N; i++) {
+                            velocity(px[i], py[i], _v);
+                            if (!_v[2]) { spawn(i, false); continue; }
+                            const u = _v[0], v = _v[1];
+                            px[i] += u * dt;
+                            py[i] += v * dt;
+                            age[i] += 1;
+
+                            if (px[i] > 2.15 || px[i] < -2.4 || py[i] < -1.6 || py[i] > 1.6 || age[i] > 720) {
+                                spawn(i, false);
+                                continue;
+                            }
+
+                            worldToScreen(px[i], py[i], _sp);
+                            const sx = _sp[0], sy = _sp[1];
+                            if (sx < -2 || sx > W + 2 || sy < -2 || sy > H + 2) continue;
+
+                            // Color by local speed: navy → blueprint → signal → ember
+                            const speed = Math.hypot(u, v);
+                            const e = Math.min(speed * 0.55, 1);
+                            let r, g, b;
+                            if (e < 0.55) {
+                                const k = e / 0.55;
+                                r = 0.30 + (0.49 - 0.30) * k;
+                                g = 0.55 + (0.77 - 0.55) * k;
+                                b = 0.85 + (1.00 - 0.85) * k;
+                            } else if (e < 0.85) {
+                                const k = (e - 0.55) / 0.30;
+                                r = 0.49 + (0.78 - 0.49) * k;
+                                g = 0.77 + (1.00 - 0.77) * k;
+                                b = 1.00 + (0.18 - 1.00) * k;
+                            } else {
+                                const k = Math.min((e - 0.85) / 0.15, 1);
+                                r = 0.78 + (1.00 - 0.78) * k;
+                                g = 1.00 + (0.42 - 1.00) * k;
+                                b = 0.18 + (0.12 - 0.18) * k;
+                            }
+                            ctx.fillStyle = 'rgba(' + ((r * 255) | 0) + ',' + ((g * 255) | 0) + ',' + ((b * 255) | 0) + ',0.85)';
+                            ctx.fillRect(sx - 0.7, sy - 0.7, 1.6, 1.6);
+                        }
+
+                        // Airfoil silhouette over the streamlines
+                        ctx.beginPath();
+                        for (let i = 0; i < outline.length; i++) {
+                            worldToScreen(outline[i * 2], outline[i * 2 + 1], _sp);
+                            if (i === 0) ctx.moveTo(_sp[0], _sp[1]);
+                            else         ctx.lineTo(_sp[0], _sp[1]);
+                        }
+                        ctx.closePath();
+                        ctx.fillStyle = 'rgba(14, 18, 24, 0.97)';
+                        ctx.fill();
+                        ctx.lineWidth = 1.1;
+                        ctx.strokeStyle = 'rgba(124, 196, 255, 0.78)';
+                        ctx.stroke();
+
+                        // Subtle chord line for visual reference
+                        worldToScreen(-1, 0, _sp); const cx0 = _sp[0], cy0 = _sp[1];
+                        worldToScreen( 1, 0, _sp);
+                        ctx.beginPath();
+                        ctx.setLineDash([4, 4]);
+                        ctx.moveTo(cx0, cy0);
+                        ctx.lineTo(_sp[0], _sp[1]);
+                        ctx.strokeStyle = 'rgba(124, 196, 255, 0.18)';
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                        ctx.setLineDash([]);
+                    }
+                    function setAnimationRunning(shouldRun) {
+                        if (animationRunning === shouldRun) return;
+                        animationRunning = shouldRun;
+                        if (animationRunning) loop();
+                        else if (animationFrame) {
+                            cancelAnimationFrame(animationFrame);
+                            animationFrame = 0;
+                        }
+                    }
+
+                    setAnimationRunning(true);
+                    if ('IntersectionObserver' in window) {
+                        new IntersectionObserver(function (entries) {
+                            setAnimationRunning(entries[0].isIntersecting);
+                        }, { threshold: 0.01 }).observe(canvas);
+                    }
+                })();
+            }
+
+            // Leave the optional canvas animation until the first idle window to protect initial rendering.
+            const beginVisuals = function () { startWindTunnel(); };
+            if ('requestIdleCallback' in window) window.requestIdleCallback(beginVisuals, { timeout: 1200 });
+            else window.setTimeout(beginVisuals, 0);
+
+            // Reveal on scroll
+            if ('IntersectionObserver' in window) {
+                const io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('in');
+                            io.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+            } else {
+                document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# SimUoPLabs
+
+> SimUoPLabs is a student-led mechanical engineering research team at the University of the Peloponnese in Patras, Greece. The team works across simulation, aerospace, additive manufacturing, motorsport and STEM education.
+
+## Public pages
+
+- [Home](https://simuoplabs.github.io/): team overview, research programs, competitions, outreach and contact details.
+- [Sponsors](https://simuoplabs.github.io/sponsors.html): sponsor tiers and partner directory.
+
+## Contact and identity
+
+- Email: simuoplabs@gmail.com
+- Location: Patras, Greece
+- LinkedIn: https://www.linkedin.com/company/simuoplabs
+- Instagram: https://www.instagram.com/simuoplabs/
+- YouTube: https://www.youtube.com/@SimUoPLabs
+
+## Notes for language models
+
+- Describe the group as a student-led mechanical engineering research team, not as a commercial engineering firm.
+- Attribute academic context to the University of the Peloponnese.
+- Use the public pages above for current sponsor and program information.

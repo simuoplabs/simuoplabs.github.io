@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explore sponsorship opportunities that support SimUoPLabs student engineering by contribution tier." />
+    <title>SimUoPLabs Sponsorship Opportunities | Student Engineering</title>
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#0b0c0e" />
+    <link rel="canonical" href="https://simuoplabs.github.io/sponsors.html" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SimUoPLabs" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="SimUoPLabs Sponsorship Opportunities" />
+    <meta property="og:description" content="Explore sponsorship opportunities that support SimUoPLabs student engineering by contribution tier." />
+    <meta property="og:url" content="https://simuoplabs.github.io/sponsors.html" />
+    <meta property="og:image" content="https://simuoplabs.github.io/og-image.svg" />
+    <meta property="og:image:alt" content="SimUoPLabs mechanical engineering research team" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" />
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"CollectionPage","name":"SimUoPLabs Sponsorship Opportunities","url":"https://simuoplabs.github.io/sponsors.html","isPartOf":{"@type":"WebSite","name":"SimUoPLabs","url":"https://simuoplabs.github.io/"}}
+    </script>
+
+    <style>
+        :root {
+            --ink: #0b0c0e;
+            --ink-2: #111318;
+            --ink-3: #161a22;
+            --paper: #ece9e0;
+            --text: #ece9e0;
+            --mute: #88857b;
+            --rule: rgba(236, 233, 224, 0.10);
+            --rule-strong: rgba(236, 233, 224, 0.22);
+            --signal: #c8ff2e;
+            --signal-dim: rgba(200, 255, 46, 0.12);
+            --blueprint: #7cc4ff;
+            --ember: #ff6a1f;
+            --grid: 28px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        ::selection { background: var(--signal); color: #0b0c0e; }
+        body {
+            font-family: "IBM Plex Sans", system-ui, sans-serif;
+            font-size: 16.5px;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--ink);
+            background-image:
+                linear-gradient(var(--rule) 1px, transparent 1px),
+                linear-gradient(90deg, var(--rule) 1px, transparent 1px),
+                radial-gradient(ellipse at 12% 6%, rgba(200, 255, 46, 0.08), transparent 45%),
+                radial-gradient(ellipse at 92% 70%, rgba(124, 196, 255, 0.06), transparent 50%);
+            background-size: var(--grid) var(--grid), var(--grid) var(--grid), 100% 100%, 100% 100%;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        a { color: inherit; text-decoration: none; }
+        :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+        .mono-up {
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .mute { color: var(--mute); }
+        .signal { color: var(--signal); }
+
+        nav.primary {
+            position: sticky; top: 0; z-index: 40;
+            display: grid; grid-template-columns: auto 1fr auto;
+            align-items: center; gap: 24px;
+            padding: 16px 28px;
+            background: rgba(11, 12, 14, 0.78);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--rule);
+        }
+        .logo {
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+            font-weight: 700; font-size: 0.95rem;
+            letter-spacing: 0.04em;
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .logo-glyph {
+            width: 22px; height: 22px;
+            border: 1.5px solid var(--signal);
+            position: relative;
+            transform: rotate(45deg);
+        }
+        .logo-glyph::before { content: ""; position: absolute; inset: 3px; border: 1px solid var(--signal); }
+        .logo-glyph::after { content: ""; position: absolute; inset: 7px; background: var(--signal); }
+        .logo span { color: var(--signal); }
+        .nav-menu {
+            display: flex; flex-wrap: wrap; gap: 4px 0; list-style: none; justify-content: center;
+            font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.78rem;
+            letter-spacing: 0.06em;
+        }
+        .nav-menu a {
+            display: inline-block; padding: 8px 12px; color: var(--mute);
+            transition: color 0.2s ease, background 0.2s ease;
+        }
+        .nav-menu a:hover { color: var(--text); background: var(--ink-3); }
+        .nav-menu a::before { content: "·  "; color: var(--rule-strong); }
+        .nav-menu li:first-child a::before { content: ""; }
+
+        .btn {
+            display: inline-flex; align-items: center; gap: 12px;
+            padding: 14px 22px; min-height: 48px;
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+            font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500;
+            border: 1px solid var(--signal);
+            background: var(--signal); color: #0b0c0e;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 0 var(--text); }
+        .btn.ghost { background: transparent; color: var(--text); border-color: var(--rule-strong); }
+        .btn.ghost:hover { color: var(--signal); border-color: var(--signal); box-shadow: 4px 4px 0 0 var(--signal-dim); }
+        .btn .arrow { width: 14px; height: 10px; }
+
+        .page-hero {
+            padding: 84px 28px 72px;
+            border-bottom: 1px solid var(--rule);
+        }
+        .hero-inner, .sect-inner { max-width: 1320px; margin: 0 auto; }
+        .hero-meta {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed var(--rule-strong);
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+            font-size: 0.72rem; letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--mute);
+            margin-bottom: 56px;
+        }
+        .hero-meta dt { color: var(--mute); margin-bottom: 6px; font-size: 0.65rem; }
+        .hero-meta dd { color: var(--text); font-size: 0.78rem; }
+        h1 {
+            max-width: 920px;
+            font-family: "IBM Plex Sans", system-ui, sans-serif;
+            font-weight: 600;
+            font-size: clamp(3rem, 8vw, 6.8rem);
+            line-height: 0.96;
+            letter-spacing: -0.045em;
+        }
+        h1 em, .sect-title em { font-style: normal; color: var(--signal); }
+        .hero-lead {
+            max-width: 620px; color: var(--mute); font-size: 1.05rem; line-height: 1.65;
+            margin: 24px 0;
+        }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+        section.sect {
+            padding: 92px 28px 96px;
+            border-bottom: 1px solid var(--rule);
+        }
+        .sect-head {
+            display: grid; grid-template-columns: auto 1fr; gap: 40px;
+            margin-bottom: 48px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--rule);
+            align-items: end;
+        }
+        .sect-num {
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+            font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--signal);
+        }
+        .sect-num span { color: var(--mute); display: block; margin-top: 6px; font-size: 0.68rem; }
+        .sect-title {
+            font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 600;
+            font-size: clamp(1.9rem, 4.4vw, 3.2rem); line-height: 1.05; letter-spacing: -0.035em;
+        }
+
+        .tier-stack { display: grid; gap: 28px; }
+        .tier {
+            border: 1px solid var(--rule-strong);
+            background: rgba(17, 19, 24, 0.72);
+        }
+        .tier-head {
+            display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;
+            padding: 24px 28px;
+            border-bottom: 1px dashed var(--rule);
+        }
+        .tier-head h2 {
+            font-family: "IBM Plex Sans", system-ui, sans-serif;
+            font-weight: 600;
+            font-size: clamp(1.35rem, 2.6vw, 2rem);
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+        }
+        .tier-head p { color: var(--mute); margin-top: 8px; max-width: 70ch; }
+        .tier-code {
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+            color: var(--signal);
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            border: 1px solid var(--signal-dim);
+            padding: 8px 12px;
+        }
+        .sponsor-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--rule);
+        }
+        .sponsor-card {
+            min-height: 190px;
+            background: var(--ink);
+            padding: 26px;
+            display: grid;
+            gap: 20px;
+            align-content: space-between;
+        }
+        .sponsor-mark {
+            min-height: 86px;
+            border: 1px solid var(--rule-strong);
+            background:
+                linear-gradient(135deg, rgba(200, 255, 46, 0.08), transparent 55%),
+                rgba(11, 12, 14, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text);
+        }
+        .sponsor-card dl {
+            display: grid;
+            grid-template-columns: 86px 1fr;
+            gap: 6px 16px;
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+            font-size: 0.72rem;
+        }
+        .sponsor-card dt {
+            color: var(--mute);
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-size: 0.62rem;
+        }
+        .sponsor-card dd { color: var(--text); }
+
+        .contact-band {
+            padding: 56px 28px;
+            background:
+                linear-gradient(90deg, rgba(200, 255, 46, 0.08) 0%, transparent 70%),
+                var(--ink-2);
+            border-bottom: 1px solid var(--rule);
+        }
+        .contact-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 24px;
+            align-items: center;
+        }
+        .contact-inner h2 {
+            font-family: "IBM Plex Sans", system-ui, sans-serif;
+            font-weight: 600;
+            font-size: clamp(1.4rem, 2.6vw, 2rem);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        .contact-inner p { color: var(--mute); margin-top: 8px; }
+
+        footer {
+            padding: 32px 28px;
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--mute);
+        }
+        .foot-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .legal-nav { display: flex; flex-wrap: wrap; gap: 14px; }
+        .legal-nav a { color: var(--mute); }
+        .legal-nav a:hover, .legal-nav a:focus-visible { color: var(--signal); }
+
+        @media (max-width: 980px) {
+            nav.primary { grid-template-columns: 1fr; }
+            .nav-menu { justify-content: start; }
+            .hero-meta { grid-template-columns: 1fr; }
+            .sect-head { grid-template-columns: 1fr; gap: 16px; }
+            .sponsor-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-inner { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            nav.primary, .page-hero, section.sect, .contact-band, footer { padding-left: 18px; padding-right: 18px; }
+            .sponsor-grid { grid-template-columns: 1fr; }
+            .tier-head { grid-template-columns: 1fr; padding: 22px; }
+            .sponsor-card { padding: 22px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="primary" aria-label="Sponsor navigation">
+        <a href="index.html#home" class="logo" aria-label="SimUoPLabs home">
+            <span class="logo-glyph" aria-hidden="true"></span>
+            SimUoP<span>Labs</span>
+        </a>
+        <ul class="nav-menu" role="list">
+            <li><a href="index.html#sponsors">Sponsor Roll</a></li>
+            <li><a href="#tiers">Tiers</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <a href="index.html" class="btn ghost">
+            <span>Back Home</span>
+            <svg class="arrow" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M14 5H2M6 1 2 5l4 4" stroke="currentColor" stroke-width="1.5"/></svg>
+        </a>
+    </nav>
+
+    <header class="page-hero">
+        <div class="hero-inner">
+            <dl class="hero-meta">
+                <div><dt>DOSSIER</dt><dd>SPONSORSHIP / TIERS</dd></div>
+                <div><dt>NODE</dt><dd>KOUKOULI · PATRAS</dd></div>
+                <div><dt>STATUS</dt><dd><span class="signal">OPEN CHANNEL</span></dd></div>
+            </dl>
+            <h1>Support <em>student engineering.</em></h1>
+            <p class="hero-lead">Each sponsorship tier can support materials, manufacturing, electronics, validation, travel and STEM outreach.</p>
+            <div class="hero-actions">
+                <a href="#tiers" class="btn">
+                    <span>View Tiers</span>
+                    <svg class="arrow" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
+                </a>
+                <a href="index.html#contact" class="btn ghost">
+                    <span>Become a Sponsor</span>
+                    <svg class="arrow" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main id="tiers">
+        <section class="sect">
+            <div class="sect-inner">
+                <header class="sect-head">
+                    <div class="sect-num">§ 01<br/><span>Tier Map</span></div>
+                    <h2 class="sect-title">Support options, <em>by tier.</em></h2>
+                </header>
+
+                <div class="tier-stack">
+                    <article class="tier">
+                        <header class="tier-head">
+                            <div>
+                                <h3>Platinum Sponsors</h3>
+                                <p>For organizations considering major support for vehicle systems, aerodynamic testing, prototype development and competition readiness.</p>
+                            </div>
+                            <span class="tier-code">TIER / 01</span>
+                        </header>
+                        <div class="sponsor-grid">
+                            <article class="sponsor-card"><div class="sponsor-mark">Sponsor opportunity</div><dl><dt>Tier</dt><dd>Platinum</dd><dt>Focus</dt><dd>Aerodynamics</dd></dl></article>
+                            <article class="sponsor-card"><div class="sponsor-mark">Sponsor opportunity</div><dl><dt>Tier</dt><dd>Platinum</dd><dt>Focus</dt><dd>Motors and testing</dd></dl></article>
+                            <article class="sponsor-card"><div class="sponsor-mark">Sponsor opportunity</div><dl><dt>Tier</dt><dd>Platinum</dd><dt>Focus</dt><dd>Program support</dd></dl></article>
+                        </div>
+                    </article>
+
+                    <article class="tier">
+                        <header class="tier-head">
+                            <div>
+                                <h3>Gold Sponsors</h3>
+                                <p>For organizations considering support for fabrication, components, electronics and technical mentoring.</p>
+                            </div>
+                            <span class="tier-code">TIER / 02</span>
+                        </header>
+                        <div class="sponsor-grid">
+                            <article class="sponsor-card"><div class="sponsor-mark">Sponsor opportunity</div><dl><dt>Tier</dt><dd>Gold</dd><dt>Focus</dt><dd>Additive manufacturing</dd></dl></article>
+                            <article class="sponsor-card"><div class="sponsor-mark">Sponsor opportunity</div><dl><dt>Tier</dt><dd>Gold</dd><dt>Focus</dt><dd>Electronics</dd></dl></article>
+                            <article class="sponsor-card"><div class="sponsor-mark">Sponsor opportunity</div><dl><dt>Tier</dt><dd>Gold</dd><dt>Focus</dt><dd>Materials</dd></dl></article>
+                        </div>
+                    </article>
+
+                    <article class="tier">
+                        <header class="tier-head">
+                            <div>
+                                <h3>Silver Sponsors</h3>
+                                <p>Support for student builds, lab supplies, sensors, workshop tools and validation hardware.</p>
+                            </div>
+                            <span class="tier-code">TIER / 03</span>
+                        </header>
+                        <div class="sponsor-grid">
+                            <article class="sponsor-card"><div class="sponsor-mark">Sponsor opportunity</div><dl><dt>Tier</dt><dd>Silver</dd><dt>Focus</dt><dd>Control systems</dd></dl></article>
+                            <article class="sponsor-card"><div class="sponsor-mark">Sponsor opportunity</div><dl><dt>Tier</dt><dd>Silver</dd><dt>Focus</dt><dd>Composites</dd></dl></article>
+                            <article class="sponsor-card"><div class="sponsor-mark">Sponsor opportunity</div><dl><dt>Tier</dt><dd>Silver</dd><dt>Focus</dt><dd>Data collection</dd></dl></article>
+                        </div>
+                    </article>
+
+                    <article class="tier">
+                        <header class="tier-head">
+                            <div>
+                                <h3>Bronze Sponsors</h3>
+                                <p>Targeted support for parts, services, small equipment and competition operations.</p>
+                            </div>
+                            <span class="tier-code">TIER / 04</span>
+                        </header>
+                        <div class="sponsor-grid">
+                            <article class="sponsor-card"><div class="sponsor-mark">Sponsor opportunity</div><dl><dt>Tier</dt><dd>Bronze</dd><dt>Focus</dt><dd>Consumables</dd></dl></article>
+                            <article class="sponsor-card"><div class="sponsor-mark">Sponsor opportunity</div><dl><dt>Tier</dt><dd>Bronze</dd><dt>Focus</dt><dd>Workshop tools</dd></dl></article>
+                            <article class="sponsor-card"><div class="sponsor-mark">Sponsor opportunity</div><dl><dt>Tier</dt><dd>Bronze</dd><dt>Focus</dt><dd>Validation</dd></dl></article>
+                        </div>
+                    </article>
+
+                    <article class="tier">
+                        <header class="tier-head">
+                            <div>
+                                <h3>In-Kind and Outreach Sponsors</h3>
+                                <p>Non-cash support for mentoring, venue access, student outreach, media and educational activity.</p>
+                            </div>
+                            <span class="tier-code">TIER / 05</span>
+                        </header>
+                        <div class="sponsor-grid">
+                            <article class="sponsor-card"><div class="sponsor-mark">Sponsor opportunity</div><dl><dt>Tier</dt><dd>In-kind</dd><dt>Focus</dt><dd>Outreach</dd></dl></article>
+                            <article class="sponsor-card"><div class="sponsor-mark">Sponsor opportunity</div><dl><dt>Tier</dt><dd>In-kind</dd><dt>Focus</dt><dd>Facilities</dd></dl></article>
+                            <article class="sponsor-card"><div class="sponsor-mark">Sponsor opportunity</div><dl><dt>Tier</dt><dd>In-kind</dd><dt>Focus</dt><dd>Communications</dd></dl></article>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <aside class="contact-band">
+        <div class="contact-inner">
+            <div>
+                <h2>Interested in sponsorship?</h2>
+                <p>Open a channel with SimUoPLabs to discuss tier fit, technical support and student impact.</p>
+            </div>
+            <a href="index.html#contact" class="btn">
+                <span>Contact Team</span>
+                <svg class="arrow" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
+            </a>
+        </div>
+    </aside>
+
+    <footer>
+        <div class="foot-inner">
+            <span>© SimUoPLabs / Sponsorship</span>
+            <nav class="legal-nav" aria-label="Legal information"><a href="privacy.html">Privacy</a><a href="cookies.html">Cookies</a><a href="terms.html">Terms</a></nav>
+            <span class="signal">ANALYSIS DRIVES INNOVATION</span>
+        </div>
+    </footer>
+</body>
+</html>
